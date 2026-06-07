@@ -294,39 +294,10 @@
 
         <div class="nav-section-label">Documents</div>
 
-        <div class="nav-items">
-            <div class="nav-item active" data-src="cv.html" onclick="load(this)">
-                <div class="nav-item-inner">
-                    <div class="nav-item-title">Curriculum Vitae</div>
-                    <div class="nav-item-desc">Experience, skills &amp; education</div>
-                </div>
-            </div>
+        <div class="nav-items" id="navItems"></div>
 
-            <div class="nav-item" data-src="cover-letter.html" onclick="load(this)">
-                <div class="nav-item-inner">
-                    <div class="nav-item-title">Cover Letter</div>
-                    <div class="nav-item-desc">Application letter</div>
-                </div>
-            </div>
-
-            <div class="nav-item" data-src="projects.html" onclick="load(this)">
-                <div class="nav-item-inner">
-                    <div class="nav-item-title">Projects</div>
-                    <div class="nav-item-desc">Selected work projects</div>
-                </div>
-            </div>
-
-            <div class="nav-item" data-src="about.html" onclick="load(this)">
-                <div class="nav-item-inner">
-                    <div class="nav-item-title">About Me</div>
-                    <div class="nav-item-desc">Background &amp; interests</div>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="mobile-cl-link">
-            <span class="canvas-footer-link" onclick="load(document.querySelector('[data-src=\'cover-letter.html\']'))">
+        <div class="mobile-cl-link" id="mobileCl" style="display:none">
+            <span class="canvas-footer-link" onclick="loadCoverLetter()">
                 Cover Letter
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                     <path d="M2.5 7h9M8 3.5l3.5 3.5L8 10.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
@@ -371,6 +342,41 @@
 </div>
 
 <script>
+    // ── Tab config — set hidden: true to hide a tab ──────────────────
+    const TABS = [
+        { title: 'Curriculum Vitae',  desc: 'Experience, skills & education', src: 'cv.html',            hidden: false },
+        { title: 'Cover Letter',      desc: 'Application letter',              src: 'cover-letter.html',  hidden: false },
+        { title: 'Projects',          desc: 'Selected work projects',          src: 'projects.html',      hidden: false },
+        { title: 'About Me',          desc: 'Background & interests',          src: 'about.html',         hidden: false },
+    ];
+    // ─────────────────────────────────────────────────────────────────
+
+    const visible = TABS.filter(t => !t.hidden);
+
+    // Build nav items
+    const navItems = document.getElementById('navItems');
+    visible.forEach((tab, i) => {
+        const el = document.createElement('div');
+        el.className = 'nav-item' + (i === 0 ? ' active' : '');
+        el.dataset.src = tab.src;
+        el.onclick = function () { load(this); };
+        el.innerHTML = `<div class="nav-item-inner">
+            <div class="nav-item-title">${tab.title}</div>
+            <div class="nav-item-desc">${tab.desc}</div>
+        </div>`;
+        navItems.appendChild(el);
+    });
+
+    // Show mobile cover letter link if cover letter tab is visible
+    if (visible.find(t => t.src === 'cover-letter.html')) {
+        document.getElementById('mobileCl').style.display = '';
+    }
+
+    // Load first tab
+    if (visible.length) {
+        document.getElementById('docFrame').src = visible[0].src;
+    }
+
     function load(el) {
         if (window.innerWidth <= 768) {
             window.open(el.dataset.src, '_blank');
