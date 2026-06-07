@@ -151,6 +151,31 @@
             margin-top: 2px;
         }
 
+        .print-btn {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            margin-top: 20px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            font-family: inherit;
+            font-size: 0.72rem;
+            font-weight: 500;
+            color: rgba(255,255,255,0.2);
+            letter-spacing: 0.04em;
+            transition: color 0.15s;
+        }
+
+        .print-btn:hover { color: var(--muted); }
+
+        @media print {
+            .nav { display: none; }
+            .layout { grid-template-columns: 1fr; }
+            .canvas-footer { display: none; }
+        }
+
         /* Decorative marker accent */
         .nav-marker {
             position: absolute;
@@ -306,6 +331,14 @@
         <div class="nav-footer">
             <div class="nav-footer-email">jonas.kauko@matrix42.com</div>
             <div class="nav-footer-loc">Espoo, Finland</div>
+            <button class="print-btn" onclick="window.print()">
+                <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+                    <rect x="2" y="4.5" width="9" height="6" rx="1" stroke="currentColor" stroke-width="1.2"/>
+                    <path d="M4 4.5V2.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v2" stroke="currentColor" stroke-width="1.2"/>
+                    <path d="M4 8.5h5M4 10.5h3" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
+                </svg>
+                Print / Save PDF
+            </button>
         </div>
 
     </nav>
