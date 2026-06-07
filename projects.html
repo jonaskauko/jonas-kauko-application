@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jonas Kauko — Projects</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --dark:   #2d3040;
+            --accent: #655bb0;
+            --white:  #ffffff;
+            --text:   #1a1b2e;
+            --muted:  #64748b;
+            --border: #e2e8f0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Sharp Sans Display No1', 'Space Grotesk', Arial, sans-serif;
+            background: #e8e7f0;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .page {
+            max-width: 780px;
+            margin: 0 auto;
+            background: var(--white);
+            box-shadow: 0 24px 80px rgba(0,0,0,0.2);
+        }
+
+        /* ── HEADER ── */
+        .header {
+            background: var(--dark);
+            padding: 40px 52px;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            align-items: end;
+            gap: 24px;
+        }
+
+        .header-name {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: -0.03em;
+            line-height: 1;
+        }
+
+        .header-role {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            margin-top: 8px;
+        }
+
+        .header-contact {
+            text-align: right;
+        }
+
+        .header-contact-row {
+            font-size: 0.75rem;
+            color: #94a3b8;
+            line-height: 1.9;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 8px;
+        }
+
+        .header-contact-row .dot {
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: var(--accent);
+            flex-shrink: 0;
+        }
+
+        .accent-bar {
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), rgba(101,91,176,0.2));
+        }
+
+        /* ── BODY ── */
+        .body {
+            padding: 52px 52px 60px;
+        }
+
+        .intro {
+            font-size: 0.9rem;
+            color: var(--muted);
+            line-height: 1.75;
+            border-left: 3px solid var(--accent);
+            padding-left: 20px;
+            margin-bottom: 44px;
+            font-style: italic;
+            font-weight: 300;
+        }
+
+        /* ── PROJECT LIST ── */
+        .project-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .project-item {
+            padding: 24px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .project-item:first-child { padding-top: 0; }
+        .project-item:last-child { border-bottom: none; padding-bottom: 0; }
+
+        .project-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 6px;
+            gap: 16px;
+        }
+
+        .project-name {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .project-date {
+            font-size: 0.7rem;
+            color: var(--muted);
+            white-space: nowrap;
+            flex-shrink: 0;
+            padding-top: 2px;
+        }
+
+        .project-company {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 8px;
+        }
+
+        .project-desc {
+            font-size: 0.85rem;
+            color: #475569;
+            line-height: 1.7;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 12px;
+        }
+
+        .tag {
+            font-size: 0.68rem;
+            font-weight: 500;
+            color: var(--accent);
+            background: rgba(101,91,176,0.08);
+            border: 1px solid rgba(101,91,176,0.2);
+            padding: 3px 9px;
+            border-radius: 3px;
+            letter-spacing: 0.04em;
+        }
+
+        /* ── FOOTER ── */
+        .footer {
+            background: var(--dark);
+            padding: 18px 52px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-text {
+            font-size: 0.68rem;
+            color: #475569;
+            letter-spacing: 0.05em;
+        }
+
+        .footer-accent {
+            width: 28px;
+            height: 2px;
+            background: var(--accent);
+            border-radius: 1px;
+        }
+
+        @media print {
+            body { background: white; padding: 0; }
+            .page { box-shadow: none; max-width: 100%; }
+        }
+
+        @media (max-width: 768px) {
+            body { padding: 0; }
+            .page { max-width: 100%; box-shadow: none; }
+            .header { padding: 28px 24px; grid-template-columns: 1fr; gap: 12px; }
+            .header-contact { text-align: left; }
+            .header-contact-row { justify-content: flex-start; }
+            .header-name { font-size: 1.6rem; }
+            .body { padding: 32px 24px 44px; }
+            .footer { padding: 16px 24px; }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <header class="header" id="proj-header"></header>
+    <div class="accent-bar"></div>
+    <div class="body" id="proj-body"></div>
+    <footer class="footer" id="proj-footer"></footer>
+</div>
+
+<script src="projects-data.js"></script>
+<script>
+(function () {
+    const d = PROJECTS;
+    function e(s) {
+        return String(s)
+            .replace(/&/g,'&amp;').replace(/</g,'&lt;')
+            .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    }
+
+    document.getElementById('proj-header').innerHTML = `
+        <div>
+            <div class="header-name">${e(d.name)}</div>
+            <div class="header-role">${e(d.role)}</div>
+        </div>
+        <div class="header-contact">
+            <div class="header-contact-row"><div class="dot"></div>${e(d.email)}</div>
+            <div class="header-contact-row"><div class="dot"></div>${e(d.location)}</div>
+        </div>`;
+
+    const projects = d.projects.map(p => `
+        <div class="project-item">
+            <div class="project-meta">
+                <div class="project-name">${e(p.name)}</div>
+                <div class="project-date">${e(p.dateRange)}</div>
+            </div>
+            <div class="project-company">${e(p.company)}</div>
+            <div class="project-desc">${e(p.desc)}</div>
+            ${p.tags && p.tags.length ? `<div class="project-tags">${p.tags.map(t => `<span class="tag">${e(t)}</span>`).join('')}</div>` : ''}
+        </div>`).join('');
+
+    document.getElementById('proj-body').innerHTML = `
+        <div class="intro">${e(d.intro)}</div>
+        <div class="project-list">${projects}</div>`;
+
+    document.getElementById('proj-footer').innerHTML = `
+        <div class="footer-text">${e(d.email)} &nbsp;·&nbsp; ${e(d.location)}</div>
+        <div class="footer-accent"></div>`;
+})();
+</script>
+</body>
+</html>
