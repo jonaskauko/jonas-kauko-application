@@ -135,10 +135,15 @@
         .hobby-item {
             padding: 18px 0;
             border-bottom: 1px solid var(--border);
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
         }
 
         .hobby-item:first-child { padding-top: 0; }
         .hobby-item:last-child { border-bottom: none; padding-bottom: 0; }
+
+        .hobby-text { flex: 1; }
 
         .hobby-name {
             font-size: 0.9rem;
@@ -151,6 +156,36 @@
             font-size: 0.85rem;
             color: #475569;
             line-height: 1.65;
+        }
+
+        .hobby-img {
+            width: 130px;
+            height: 90px;
+            object-fit: cover;
+            border-radius: 4px;
+            flex-shrink: 0;
+        }
+
+        /* ── PHOTO GALLERY ── */
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .photo-item img {
+            width: 100%;
+            aspect-ratio: 4/3;
+            object-fit: cover;
+            border-radius: 4px;
+            display: block;
+        }
+
+        .photo-caption {
+            font-size: 0.72rem;
+            color: var(--muted);
+            margin-top: 6px;
+            line-height: 1.4;
         }
 
         /* ── FACTS ── */
@@ -213,6 +248,8 @@
             .header-name { font-size: 1.6rem; }
             .body { padding: 32px 24px 44px; }
             .footer { padding: 16px 24px; }
+            .hobby-img { width: 90px; height: 70px; }
+            .photo-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -246,8 +283,11 @@
 
     const hobbies = d.hobbies.map(h => `
         <div class="hobby-item">
-            <div class="hobby-name">${e(h.name)}</div>
-            <div class="hobby-desc">${e(h.desc)}</div>
+            <div class="hobby-text">
+                <div class="hobby-name">${e(h.name)}</div>
+                <div class="hobby-desc">${e(h.desc)}</div>
+            </div>
+            ${h.image ? `<img class="hobby-img" src="${e(h.image)}" alt="${e(h.name)}">` : ''}
         </div>`).join('');
 
     const facts = d.facts && d.facts.length
@@ -257,13 +297,27 @@
            </section>`
         : '';
 
+    const gallery = d.photos && d.photos.length
+        ? `<section class="section">
+               <h2 class="section-title">Photos</h2>
+               <div class="photo-grid">
+                   ${d.photos.map(p => `
+                       <div class="photo-item">
+                           <img src="${e(p.src)}" alt="${e(p.caption || '')}">
+                           ${p.caption ? `<div class="photo-caption">${e(p.caption)}</div>` : ''}
+                       </div>`).join('')}
+               </div>
+           </section>`
+        : '';
+
     document.getElementById('about-body').innerHTML = `
         <p class="bio">${e(d.bio)}</p>
         <section class="section">
             <h2 class="section-title">Hobbies &amp; Interests</h2>
             <div class="hobby-list">${hobbies}</div>
         </section>
-        ${facts}`;
+        ${facts}
+        ${gallery}`;
 
     document.getElementById('about-footer').innerHTML = `
         <div class="footer-text">${e(d.email)} &nbsp;·&nbsp; ${e(d.location)}</div>
