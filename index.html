@@ -183,6 +183,43 @@
             font-size: 0.85rem;
             gap: 12px;
         }
+
+        /* ── MOBILE ── */
+        @media (max-width: 768px) {
+            html, body { overflow: auto; }
+
+            .layout {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
+                height: auto;
+                min-height: 100vh;
+            }
+
+            .nav {
+                padding: 36px 0 28px;
+                border-right: none;
+                border-bottom: 1px solid rgba(255,255,255,0.08);
+            }
+
+            .nav-identity { padding: 0 28px 28px; }
+
+            .nav-name { font-size: 1.5rem; }
+
+            .nav-section-label { padding: 24px 28px 10px; }
+
+            .nav-item { padding: 14px 28px; }
+
+            .nav-item-title { font-size: 1rem; }
+
+            .nav-item-desc { font-size: 0.74rem; }
+
+            .nav-footer { padding: 20px 28px 0; }
+
+            .nav-marker { display: none; }
+
+            /* On mobile: no iframe, nav items are full-page links */
+            .frame-wrap { display: none; }
+        }
     </style>
 </head>
 <body>
@@ -240,6 +277,10 @@
 
 <script>
     function load(el) {
+        if (window.innerWidth <= 768) {
+            window.open(el.dataset.src, '_blank');
+            return;
+        }
         document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
         el.classList.add('active');
         document.getElementById('docFrame').src = el.dataset.src;

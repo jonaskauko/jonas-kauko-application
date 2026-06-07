@@ -452,6 +452,41 @@
             body { background: white; padding: 0; }
             .page { max-width: 100%; box-shadow: none; }
         }
+
+        @media (max-width: 768px) {
+            body { padding: 0; background: var(--dark); }
+
+            .page {
+                grid-template-columns: 1fr;
+                margin: 0;
+                max-width: 100%;
+                box-shadow: none;
+            }
+
+            .photo-wrap { height: 260px; }
+
+            .identity { padding: 0 24px 24px; }
+
+            .identity h1 { font-size: 1.8rem; }
+
+            .sidebar-body { padding: 4px 24px 36px; }
+
+            .main { padding: 36px 24px 48px; }
+
+            .summary { margin-bottom: 32px; }
+
+            .tl-meta { flex-wrap: wrap; }
+
+            .tl-date { margin-left: 0; margin-top: 2px; width: 100%; }
+
+            .tl-role { font-size: 0.9rem; }
+
+            .m-title { font-size: 1rem; }
+
+            .edu-head { flex-wrap: wrap; }
+
+            .edu-date { margin-left: 0; margin-top: 2px; }
+        }
     </style>
 </head>
 <body>
