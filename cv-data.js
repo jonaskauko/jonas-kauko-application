@@ -145,7 +145,7 @@ const CV = {
     {
       school: "LUT University",
       date:   "2022 – 2026",
-      degree: "M.Sc. (tech) · Industrial Engineering & Management",
+      degree: "M.Sc. (Tech) · Industrial Engineering & Management",
       detail: "Major: Global Management of Innovation and Technology\nMinor: Software Development and Digital Transformation",
     },
     {
