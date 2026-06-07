@@ -229,86 +229,58 @@
 </head>
 <body>
 <div class="page">
+    <header class="header" id="cl-header"></header>
+    <div class="accent-bar"></div>
+    <div class="letter-body" id="cl-body"></div>
+    <footer class="footer" id="cl-footer"></footer>
+</div>
 
-    <header class="header">
+<script src="cover-letter-data.js"></script>
+<script>
+(function () {
+    const d = LETTER;
+    function e(s) {
+        return String(s)
+            .replace(/&/g,'&amp;').replace(/</g,'&lt;')
+            .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    }
+
+    // Header
+    document.getElementById('cl-header').innerHTML = `
         <div>
-            <div class="header-name">Jonas Kauko</div>
-            <div class="header-role">Service Delivery Manager</div>
+            <div class="header-name">${e(d.name)}</div>
+            <div class="header-role">${e(d.role)}</div>
         </div>
         <div class="header-contact">
-            <div class="header-contact-row">
-                <div class="dot"></div>
-                jonas.kauko@matrix42.com
-            </div>
-            <div class="header-contact-row">
-                <div class="dot"></div>
-                Espoo, Finland
-            </div>
-        </div>
-    </header>
+            <div class="header-contact-row"><div class="dot"></div>${e(d.email)}</div>
+            <div class="header-contact-row"><div class="dot"></div>${e(d.location)}</div>
+        </div>`;
 
-    <div class="accent-bar"></div>
-
-    <div class="letter-body">
-
+    // Body
+    document.getElementById('cl-body').innerHTML = `
         <div class="meta-block">
             <div class="recipient">
-                <!-- REPLACE: Recipient name and details -->
-                <strong>[Hiring Manager Name]</strong>
-                Matrix42<br>
-                [City / Department]
+                <strong>${e(d.recipientName)}</strong>
+                ${e(d.recipientCompany)}<br>${e(d.recipientLocation)}
             </div>
-            <div class="letter-date">
-                <!-- REPLACE: Date -->
-                [Date]
-            </div>
+            <div class="letter-date">${e(d.date)}</div>
         </div>
-
-        <div class="subject-line">
-            <!-- REPLACE: Role title -->
-            Re: Application for [Role Title]
-        </div>
-
-        <div class="salutation">
-            <!-- REPLACE: Salutation -->
-            Dear [Name],
-        </div>
-
+        <div class="subject-line">Re: ${e(d.subject)}</div>
+        <div class="salutation">${e(d.salutation)}</div>
         <div class="letter-text">
-            <!-- REPLACE: Opening paragraph — hook, role you're applying for, brief reason why -->
-            <p>
-                [Opening paragraph: Introduce yourself briefly, name the role, and state your primary reason for applying. Example: "I am writing to express my interest in the [Role] position at Matrix42. Having spent the past X years within the organisation..."]
-            </p>
-
-            <!-- REPLACE: Main value proposition paragraph — what you bring, key evidence -->
-            <p>
-                [Second paragraph: Highlight your most relevant experience and achievements that directly match the role. Be specific — mention numbers, customers, outcomes. Example: "Over the course of my time as Delivery Manager, I have led 100+ implementations across 35+ customers in Sweden and the Nordics..."]
-            </p>
-
-            <!-- REPLACE: Motivation paragraph — why this role, why now, company alignment -->
-            <p>
-                [Third paragraph: Explain your motivation for the internal move. What excites you about this specific role? How does it align with your career direction and with Matrix42's goals?]
-            </p>
-
-            <!-- REPLACE: Closing paragraph — call to action -->
-            <p>
-                [Closing paragraph: Express enthusiasm for discussing further, thank them for their time, mention your availability.]
-            </p>
+            ${d.paragraphs.map(p => `<p>${e(p)}</p>`).join('')}
         </div>
-
         <div class="signature-block">
-            <div class="sign-closing">Kind regards,</div>
-            <div class="sign-name">Jonas Kauko</div>
-            <div class="sign-title">Service Delivery Manager · Matrix42</div>
-        </div>
+            <div class="sign-closing">${e(d.closing)}</div>
+            <div class="sign-name">${e(d.name)}</div>
+            <div class="sign-title">${e(d.role)} · Matrix42</div>
+        </div>`;
 
-    </div>
-
-    <footer class="footer">
-        <div class="footer-text">jonas.kauko@matrix42.com &nbsp;·&nbsp; Espoo, Finland</div>
-        <div class="footer-accent"></div>
-    </footer>
-
-</div>
+    // Footer
+    document.getElementById('cl-footer').innerHTML = `
+        <div class="footer-text">${e(d.email)} &nbsp;·&nbsp; ${e(d.location)}</div>
+        <div class="footer-accent"></div>`;
+})();
+</script>
 </body>
 </html>
