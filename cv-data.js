@@ -9,7 +9,7 @@ const CV = {
   // ── Personal ────────────────────────────────────────────────────
   name:     "Jonas Kauko",
   role:     "Service Delivery Manager",
-  email:    "jonas.kauko@matrix42.com",
+  email:    "jonas.kauko@gmail.com",
   location: "Espoo, Finland",
   photo:    "pictures/DSC02724.jpg",
 
