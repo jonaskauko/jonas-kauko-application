@@ -16,7 +16,7 @@ const LETTER = {
   recipientLocation: "[City / Department]",
 
   // ── Letter meta ──────────────────────────────────────────────────
-  date:    "[Date]",
+  date:    "7. June",
   subject: "Application for Product Manager — Software Intelligence",
 
   // ── Salutation ───────────────────────────────────────────────────
