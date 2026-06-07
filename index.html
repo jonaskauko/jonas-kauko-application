@@ -4,17 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jonas Kauko — Application Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --navy:   #0A0F1E;
-            --blue:   #1B6EF3;
-            --blue-d: #1558D0;
+            --polar:  #04303D;
+            --autumn: #0D5673;
+            --blue:   #30A5BF;
+            --black:  #202326;
             --white:  #ffffff;
-            --surface:#F7F9FC;
-            --border: #E2E8F0;
-            --muted:  #94A3B8;
-            --text:   #0A0F1E;
+            --muted:  #7a9aaa;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -22,56 +20,52 @@
         html, body {
             height: 100%;
             overflow: hidden;
-            font-family: 'Inter', Arial, sans-serif;
-            background: var(--surface);
+            font-family: 'Sharp Sans Display No1', 'Space Grotesk', Arial, sans-serif;
+            background: var(--black);
         }
 
         .layout {
             display: grid;
-            grid-template-columns: 272px 1fr;
+            grid-template-columns: 260px 1fr;
             height: 100vh;
         }
 
         /* ── LEFT NAV ── */
         .nav {
-            background: var(--navy);
+            background: var(--polar);
             display: flex;
             flex-direction: column;
             padding: 40px 0;
-            border-right: none;
+            border-right: 1px solid rgba(255,255,255,0.07);
         }
 
         .nav-identity {
-            padding: 0 32px 32px;
-            border-bottom: 1px solid rgba(255,255,255,0.07);
+            padding: 0 32px 36px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
         }
 
         .nav-name {
-            font-size: 1.25rem;
+            font-size: 1.2rem;
             font-weight: 700;
             color: var(--white);
-            letter-spacing: -0.025em;
-            line-height: 1.15;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
         }
 
-        .nav-badge {
-            display: inline-block;
-            margin-top: 12px;
-            font-size: 0.6rem;
+        .nav-role {
+            font-size: 0.62rem;
             font-weight: 600;
+            color: var(--blue);
             text-transform: uppercase;
-            letter-spacing: 0.12em;
-            color: var(--navy);
-            background: var(--blue);
-            padding: 3px 10px;
-            border-radius: 4px;
+            letter-spacing: 0.14em;
+            margin-top: 7px;
         }
 
         .nav-subtitle {
             font-size: 0.72rem;
-            color: rgba(255,255,255,0.35);
-            margin-top: 8px;
-            line-height: 1.5;
+            color: var(--muted);
+            margin-top: 4px;
+            line-height: 1.4;
         }
 
         .nav-section-label {
@@ -79,68 +73,96 @@
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.18em;
-            color: rgba(255,255,255,0.2);
-            padding: 28px 32px 10px;
+            color: rgba(255,255,255,0.25);
+            padding: 28px 32px 12px;
         }
 
-        .nav-items { flex: 1; }
+        .nav-items {
+            flex: 1;
+        }
 
         .nav-item {
-            padding: 11px 32px;
+            display: flex;
+            align-items: flex-start;
+            gap: 0;
+            padding: 12px 32px;
             cursor: pointer;
             position: relative;
-            border-left: 2px solid transparent;
-            transition: background 0.12s, border-color 0.12s;
+            border-left: 3px solid transparent;
+            transition: background 0.15s, border-color 0.15s;
         }
 
-        .nav-item:hover { background: rgba(255,255,255,0.04); }
+        .nav-item:hover {
+            background: rgba(255,255,255,0.04);
+        }
 
         .nav-item.active {
-            background: rgba(27,110,243,0.12);
+            background: rgba(48,165,191,0.1);
             border-left-color: var(--blue);
         }
 
+        .nav-item-inner { width: 100%; }
+
         .nav-item-title {
-            font-size: 0.88rem;
-            font-weight: 500;
-            color: rgba(255,255,255,0.4);
-            line-height: 1.3;
-            transition: color 0.12s;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: rgba(255,255,255,0.45);
+            line-height: 1.2;
+            transition: color 0.15s;
         }
 
-        .nav-item:hover .nav-item-title { color: rgba(255,255,255,0.7); }
-        .nav-item.active .nav-item-title { color: var(--white); font-weight: 600; }
+        .nav-item:hover .nav-item-title {
+            color: rgba(255,255,255,0.75);
+        }
+
+        .nav-item.active .nav-item-title {
+            color: var(--white);
+        }
 
         .nav-item-desc {
             font-size: 0.68rem;
-            color: rgba(255,255,255,0.18);
+            color: rgba(255,255,255,0.2);
             margin-top: 2px;
-            transition: color 0.12s;
+            transition: color 0.15s;
         }
 
-        .nav-item:hover .nav-item-desc { color: rgba(255,255,255,0.3); }
-        .nav-item.active .nav-item-desc { color: rgba(255,255,255,0.4); }
+        .nav-item:hover .nav-item-desc {
+            color: rgba(255,255,255,0.35);
+        }
+
+        .nav-item.active .nav-item-desc {
+            color: var(--muted);
+        }
 
         .nav-footer {
             padding: 24px 32px 0;
-            border-top: 1px solid rgba(255,255,255,0.07);
+            border-top: 1px solid rgba(255,255,255,0.08);
         }
 
         .nav-footer-email {
-            font-size: 0.7rem;
-            color: rgba(255,255,255,0.35);
-            line-height: 1.7;
+            font-size: 0.72rem;
+            color: var(--muted);
+            line-height: 1.6;
         }
 
         .nav-footer-loc {
-            font-size: 0.68rem;
-            color: rgba(255,255,255,0.18);
+            font-size: 0.7rem;
+            color: rgba(255,255,255,0.2);
+            margin-top: 2px;
         }
 
-        /* ── FRAME ── */
+        /* Decorative marker accent */
+        .nav-marker {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            opacity: 0.05;
+        }
+
+        /* ── CONTENT FRAME ── */
         .frame-wrap {
-            background: var(--surface);
             position: relative;
+            background: var(--black);
         }
 
         .doc-frame {
@@ -150,28 +172,52 @@
             display: block;
         }
 
+        /* Empty state */
+        .empty-state {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            color: rgba(255,255,255,0.15);
+            font-size: 0.85rem;
+            gap: 12px;
+        }
+
         /* ── MOBILE ── */
         @media (max-width: 768px) {
             html, body { overflow: auto; }
 
             .layout {
                 grid-template-columns: 1fr;
+                grid-template-rows: auto;
                 height: auto;
                 min-height: 100vh;
             }
 
             .nav {
-                padding: 32px 0 24px;
-                border-bottom: 1px solid rgba(255,255,255,0.07);
+                padding: 36px 0 28px;
+                border-right: none;
+                border-bottom: 1px solid rgba(255,255,255,0.08);
             }
 
-            .nav-identity { padding: 0 24px 24px; }
+            .nav-identity { padding: 0 28px 28px; }
+
             .nav-name { font-size: 1.5rem; }
-            .nav-section-label { padding: 22px 24px 10px; }
-            .nav-item { padding: 13px 24px; }
+
+            .nav-section-label { padding: 24px 28px 10px; }
+
+            .nav-item { padding: 14px 28px; }
+
             .nav-item-title { font-size: 1rem; }
+
             .nav-item-desc { font-size: 0.74rem; }
-            .nav-footer { padding: 20px 24px 0; }
+
+            .nav-footer { padding: 20px 28px 0; }
+
+            .nav-marker { display: none; }
+
+            /* On mobile: no iframe, nav items are full-page links */
             .frame-wrap { display: none; }
         }
     </style>
@@ -179,10 +225,12 @@
 <body>
 <div class="layout">
 
+    <!-- ── LEFT NAV ── -->
     <nav class="nav">
+
         <div class="nav-identity">
-            <div class="nav-name">Jonas Kauko</div>
-            <div class="nav-badge">Product Manager Application</div>
+            <div class="nav-name">Jonas<br>Kauko</div>
+            <div class="nav-role">Product Manager Application</div>
             <div class="nav-subtitle">Software Intelligence · Matrix42</div>
         </div>
 
@@ -190,29 +238,49 @@
 
         <div class="nav-items">
             <div class="nav-item active" data-src="cv.html" onclick="load(this)">
-                <div class="nav-item-title">Curriculum Vitae</div>
-                <div class="nav-item-desc">Experience, skills &amp; education</div>
+                <div class="nav-item-inner">
+                    <div class="nav-item-title">Curriculum Vitae</div>
+                    <div class="nav-item-desc">Experience, skills &amp; education</div>
+                </div>
             </div>
+
             <div class="nav-item" data-src="cover-letter.html" onclick="load(this)">
-                <div class="nav-item-title">Cover Letter</div>
-                <div class="nav-item-desc">Application letter</div>
+                <div class="nav-item-inner">
+                    <div class="nav-item-title">Cover Letter</div>
+                    <div class="nav-item-desc">Application letter</div>
+                </div>
             </div>
+
         </div>
+
+        <!-- Matrix Marker decoration -->
+        <svg class="nav-marker" width="120" height="120" viewBox="0 0 120 120" fill="none">
+            <rect x="60" y="8" width="74" height="74" rx="3"
+                  transform="rotate(45 60 60)" stroke="white" stroke-width="1"/>
+            <rect x="60" y="26" width="48" height="48" rx="2"
+                  transform="rotate(45 60 60)" stroke="white" stroke-width="1"/>
+        </svg>
 
         <div class="nav-footer">
             <div class="nav-footer-email">jonas.kauko@matrix42.com</div>
             <div class="nav-footer-loc">Espoo, Finland</div>
         </div>
+
     </nav>
 
+    <!-- ── IFRAME ── -->
     <div class="frame-wrap">
         <iframe class="doc-frame" id="docFrame" src="cv.html"></iframe>
     </div>
 
 </div>
+
 <script>
     function load(el) {
-        if (window.innerWidth <= 768) { window.open(el.dataset.src, '_blank'); return; }
+        if (window.innerWidth <= 768) {
+            window.open(el.dataset.src, '_blank');
+            return;
+        }
         document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
         el.classList.add('active');
         document.getElementById('docFrame').src = el.dataset.src;
