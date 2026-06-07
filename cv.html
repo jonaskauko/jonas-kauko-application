@@ -613,34 +613,7 @@
 
     document.getElementById('cv-main').innerHTML = main;
 
-    // Cover letter button
-    const btn = document.createElement('div');
-    btn.style.cssText = 'padding: 36px 44px 48px; border-top: 1px solid #e2e8f0; margin-top: 8px;';
-    btn.innerHTML = `
-        <button onclick="openCoverLetter()" style="
-            display: inline-flex; align-items: center; gap: 10px;
-            background: var(--accent); color: #fff;
-            font-family: inherit; font-size: 0.85rem; font-weight: 600;
-            border: none; border-radius: 6px;
-            padding: 12px 22px; cursor: pointer;
-            transition: opacity 0.15s;
-        " onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
-            Continue to Cover Letter
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-        </button>`;
-    document.getElementById('cv-main').appendChild(btn);
 })();
-
-function openCoverLetter() {
-    if (window.parent && window.parent !== window) {
-        const item = Array.from(window.parent.document.querySelectorAll('.nav-item'))
-            .find(el => el.dataset.src === 'cover-letter.html');
-        if (item) { window.parent.load(item); return; }
-    }
-    window.location.href = 'cover-letter.html';
-}
 </script>
 </body>
 </html>
