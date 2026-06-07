@@ -68,7 +68,6 @@ const CV = {
       dateRange: "Oct 2019 – Present",
       role:      "Delivery Manager, Sweden and Scandinavia",
       desc:      "Responsible for Swedish and Scandinavian service delivery and leading the consulting team. Key responsibilities include resource planning and allocation, effort estimation, solution design for customer engagements and RFPs, stakeholder collaboration across Sales, Product, and R&D, partner management, project governance, financial follow-up, service development, and the training and mentoring of consultants.",
-      ],
       subroles: [
         {
           title: "Practice Lead",
