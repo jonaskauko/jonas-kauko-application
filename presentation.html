@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jonas Kauko — Presentation</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /*
+          Reveal.js scales the .reveal element via CSS transform.
+          Use em/% for all sizing so values scale correctly.
+          Avoid height:100% on nested slide content.
+          Use data-background-* on <section> for backgrounds.
+        */
+
+        :root {
+            --blue:    #30A5BF;   /* Efecte Blue  — primary accent      */
+            --orange:  #F86200;   /* M42 Orange   — key stats only       */
+            --black:   #202326;   /* M42 Black    — primary dark bg      */
+            --polar:   #04303D;   /* Polar Blue   — secondary dark bg    */
+            --autumn:  #0D5673;   /* Autumn Blue  — slide variant        */
+            --lake:    #E8F5F8;   /* Light Lake   — light slides         */
+            --teal:    #44D7D5;   /* Teal         — tertiary             */
+            --white:   #ffffff;
+        }
+
+        /* ── Reset & base ── */
+        .reveal-viewport { background: var(--black); }
+
+        .reveal .slides section {
+            font-family: 'Sharp Sans Display No1', 'Space Grotesk', Arial, sans-serif;
+            text-align: left;
+            padding: 0.12em 0.16em;     /* Reveal applies outer padding; keep inner minimal */
+            top: auto !important;        /* let vertical centering work */
+        }
+
+        .reveal h1, .reveal h2, .reveal h3, .reveal h4 {
+            font-family: 'Sharp Sans Display No1', 'Space Grotesk', Arial, sans-serif;
+            text-transform: none;
+            letter-spacing: -0.025em;
+            margin: 0;
+        }
+
+        /* ── Shared utilities ── */
+        .lbl {
+            display: block;
+            font-size: 0.42em;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.22em;
+            color: var(--blue);
+            margin-bottom: 0.6em;
+        }
+        .lbl.dim   { color: rgba(255,255,255,0.4); }
+        .lbl.dark  { color: var(--autumn); }
+
+        .hdiv {
+            width: 48px;
+            height: 3px;
+            border-radius: 1px;
+            margin: 0.55em 0;
+            background: var(--blue);
+        }
+        .hdiv.dark { background: var(--autumn); }
+
+        /* ── Progress bar ── */
+        .reveal .progress { background: rgba(255,255,255,0.08); height: 3px; color: var(--blue); }
+
+        /* ── Controls ── */
+        .reveal .controls { color: var(--blue); }
+
+
+        /* ══════════════════════════════════════
+           SLIDE 1 · TITLE
+        ══════════════════════════════════════ */
+        .s1-wrap {
+            position: relative;
+            padding: 0.9em 1.1em 1em;
+        }
+
+        .s1-marker {
+            position: absolute;
+            right: 1em;
+            top: 50%;
+            transform: translateY(-50%);
+            opacity: 0.07;
+            pointer-events: none;
+        }
+
+        .s1-name {
+            font-size: 5.5em;
+            font-weight: 700;
+            color: var(--white);
+            line-height: 0.92;
+        }
+
+        .s1-role {
+            font-size: 0.65em;
+            font-weight: 600;
+            color: var(--blue);
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            margin-top: 0.8em;
+        }
+
+        .s1-for {
+            font-size: 0.58em;
+            color: rgba(255,255,255,0.38);
+            margin-top: 2em;
+        }
+        .s1-for strong { color: rgba(255,255,255,0.75); font-weight: 600; }
+
+
+        /* ══════════════════════════════════════
+           SLIDE 2 · SUMMARY
+        ══════════════════════════════════════ */
+        .s2-wrap { padding: 0.9em 1.1em 1em; }
+
+        .s2-summary {
+            font-size: 0.78em;
+            line-height: 1.78;
+            color: rgba(255,255,255,0.78);
+            max-width: 19em;
+            margin-top: 0.4em;
+        }
+
+        .stats-row {
+            display: flex;
+            gap: 2.8em;
+            margin-top: 1.6em;
+        }
+
+        .stat-num {
+            font-size: 3em;
+            font-weight: 700;
+            color: var(--orange);
+            line-height: 1;
+        }
+
+        .stat-lbl {
+            font-size: 0.52em;
+            color: rgba(255,255,255,0.42);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            margin-top: 0.5em;
+            line-height: 1.4;
+        }
+
+
+        /* ══════════════════════════════════════
+           SLIDE 3 · JOURNEY
+        ══════════════════════════════════════ */
+        .s3-wrap { padding: 0.9em 1.1em 1em; }
+
+        .journey-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2px;
+            margin-top: 1.2em;
+        }
+
+        .j-card {
+            background: rgba(255,255,255,0.04);
+            border-top: 3px solid rgba(48,165,191,0.3);
+            padding: 1em 0.9em;
+        }
+        .j-card.now {
+            border-top-color: var(--blue);
+            background: rgba(48,165,191,0.07);
+        }
+
+        .j-year {
+            font-size: 0.48em;
+            font-weight: 600;
+            color: var(--blue);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-bottom: 0.7em;
+        }
+
+        .j-role {
+            font-size: 0.66em;
+            font-weight: 600;
+            color: var(--white);
+            line-height: 1.35;
+            margin-bottom: 0.6em;
+        }
+
+        .j-company {
+            font-size: 0.56em;
+            color: rgba(255,255,255,0.36);
+        }
+
+
+        /* ══════════════════════════════════════
+           SLIDE 4 · SKILLS  (light bg)
+        ══════════════════════════════════════ */
+        .s4-wrap { padding: 0.9em 1.1em 1em; }
+
+        .skill-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.4em;
+            margin-top: 1.2em;
+        }
+
+        .sg-title {
+            font-size: 0.5em;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--autumn);
+            border-bottom: 1px solid #bdd8e0;
+            padding-bottom: 0.6em;
+            margin-bottom: 0.8em;
+        }
+
+        .chips { display: flex; flex-wrap: wrap; gap: 5px; }
+
+        .chip {
+            font-size: 0.52em;
+            padding: 0.35em 0.85em;
+            border-radius: 30px;
+            background: var(--polar);
+            color: rgba(255,255,255,0.78);
+            line-height: 1.5;
+        }
+        .chip.hi {
+            background: var(--blue);
+            color: var(--white);
+            font-weight: 600;
+        }
+
+
+        /* ══════════════════════════════════════
+           SLIDE 5 · EDUCATION
+        ══════════════════════════════════════ */
+        .s5-wrap { padding: 0.9em 1.1em 1em; }
+
+        .edu-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-top: 1.2em;
+        }
+
+        .edu-card {
+            background: rgba(255,255,255,0.06);
+            border-bottom: 3px solid rgba(255,255,255,0.1);
+            padding: 1em 0.9em;
+        }
+        .edu-card.main { border-bottom-color: var(--blue); }
+
+        .edu-year {
+            font-size: 0.48em;
+            font-weight: 600;
+            color: var(--blue);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 0.7em;
+        }
+
+        .edu-school {
+            font-size: 0.7em;
+            font-weight: 700;
+            color: var(--white);
+            line-height: 1.3;
+            margin-bottom: 0.6em;
+        }
+
+        .edu-deg {
+            font-size: 0.58em;
+            color: rgba(255,255,255,0.48);
+            line-height: 1.55;
+        }
+
+
+        /* ══════════════════════════════════════
+           SLIDE 6 · WHY THIS ROLE
+        ══════════════════════════════════════ */
+        .s6-wrap { padding: 0.9em 1.1em 1em; }
+
+        .why-points {
+            margin-top: 1.2em;
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+        }
+
+        .why-pt {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.9em;
+        }
+
+        .why-n {
+            font-size: 1.9em;
+            font-weight: 700;
+            color: var(--blue);
+            line-height: 1;
+            flex-shrink: 0;
+            width: 1.1em;
+        }
+
+        .why-txt {
+            font-size: 0.7em;
+            line-height: 1.65;
+            color: rgba(255,255,255,0.65);
+            padding-top: 0.3em;
+        }
+        .why-txt strong { color: var(--white); font-weight: 600; }
+
+
+        /* ══════════════════════════════════════
+           SLIDE 7 · HOBBIES  (photos)
+        ══════════════════════════════════════ */
+        .s7-wrap { padding: 0.9em 1.1em 1em; }
+
+        .photo-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 1.2em;
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+            display: block;
+            filter: brightness(0.8) saturate(0.85);
+        }
+
+        .photo-cap {
+            font-size: 0.48em;
+            color: rgba(255,255,255,0.35);
+            margin-top: 0.6em;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+        }
+
+
+        /* ══════════════════════════════════════
+           SLIDE 8 · THANK YOU
+        ══════════════════════════════════════ */
+        .s8-wrap { padding: 0.9em 1.1em 1em; }
+
+        .s8-name {
+            font-size: 4.2em;
+            font-weight: 700;
+            color: var(--white);
+            line-height: 0.95;
+        }
+
+        .s8-contacts {
+            margin-top: 1.6em;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5em;
+        }
+
+        .s8-row {
+            font-size: 0.62em;
+            color: rgba(255,255,255,0.4);
+            display: flex;
+            align-items: center;
+            gap: 0.7em;
+        }
+
+        .s8-dot {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--blue);
+            flex-shrink: 0;
+        }
+
+        /* ══════════════════════════════════════
+           SLIDE 3 · COMBINED CAREER + EDUCATION
+        ══════════════════════════════════════ */
+        .combined-wrap { padding: 0.45em 1.1em 0.5em; }
+
+        .section-sublbl {
+            font-size: 0.42em;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: rgba(255,255,255,0.28);
+            margin-top: 0.7em;
+            margin-bottom: 0.35em;
+        }
+
+        .j-desc {
+            font-size: 0.52em;
+            color: rgba(255,255,255,0.32);
+            line-height: 1.45;
+            margin-top: 0.45em;
+        }
+
+        .journey-grid.compact  { margin-top: 0.4em; }
+        .journey-grid.compact .j-card  { padding: 0.6em 0.7em; }
+        .journey-grid.compact .j-year  { margin-bottom: 0.35em; }
+        .journey-grid.compact .j-role  { font-size: 0.58em; margin-bottom: 0.3em; }
+        .journey-grid.compact .j-company { font-size: 0.5em; }
+
+        .edu-grid.compact  { margin-top: 0.4em; }
+        .edu-grid.compact .edu-card   { padding: 0.6em 0.7em; }
+        .edu-grid.compact .edu-year   { margin-bottom: 0.35em; }
+        .edu-grid.compact .edu-school { font-size: 0.62em; margin-bottom: 0.3em; }
+        .edu-grid.compact .edu-deg    { font-size: 0.52em; }
+    </style>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+
+
+    <!-- ══ 1: TITLE ══════════════════════════════════════ -->
+    <section data-background-color="#202326">
+        <div class="s1-wrap">
+
+            <!-- Matrix Marker: two concentric rotated squares as decorative accent -->
+            <svg class="s1-marker" width="360" height="360" viewBox="0 0 360 360" fill="none">
+                <rect x="180" y="24" width="220" height="220" rx="4"
+                      transform="rotate(45 180 180)" stroke="white" stroke-width="1.5"/>
+                <rect x="180" y="66" width="140" height="140" rx="2"
+                      transform="rotate(45 180 180)" stroke="white" stroke-width="1"/>
+            </svg>
+
+            <span class="lbl">Matrix42</span>
+            <h1 class="s1-name">Jonas<br>Kauko</h1>
+            <div class="hdiv"></div>
+            <div class="s1-role">Service Delivery Manager</div>
+            <div class="s1-for">
+                Applying for <strong>Product Manager — Software Intelligence</strong>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ══ 2: SUMMARY ════════════════════════════════════ -->
+    <section data-background-gradient="linear-gradient(135deg, #04303D 0%, #0D5673 55%, #30A5BF 100%)">
+        <div class="s2-wrap">
+            <span class="lbl dim">Overview</span>
+            <h2 style="font-size:2.3em; color:#fff; font-weight:700;">The short version</h2>
+            <div class="hdiv"></div>
+            <p class="s2-summary">
+                Passionate about innovation with an entrepreneurial mindset. 8+ years in Technology and Software — Consulting, Business Development, and Customer Service. M.Sc. in Industrial Management + minor in Software Development. Skilled at bridging strategic, operational, and technical perspectives. Experience from startups and running my own company. Awarded for customer success and teamwork.
+            </p>
+            <div class="stats-row">
+                <div>
+                    <div class="stat-num">8+</div>
+                    <div class="stat-lbl">Years at<br>Matrix42</div>
+                </div>
+                <div>
+                    <div class="stat-num">100+</div>
+                    <div class="stat-lbl">Projects<br>delivered</div>
+                </div>
+                <div>
+                    <div class="stat-num">35+</div>
+                    <div class="stat-lbl">Customers<br>served</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ══ 3: CAREER + EDUCATION ════════════════════════ -->
+    <section data-background-color="#202326">
+        <div class="combined-wrap">
+            <span class="lbl">Background</span>
+            <h2 style="font-size:1.9em; color:#fff; font-weight:700; margin-bottom:0;">Career &amp; Education</h2>
+
+            <div class="section-sublbl">Career</div>
+            <div class="journey-grid compact">
+                <div class="j-card">
+                    <div class="j-year">2016 – 2019</div>
+                    <div class="j-role">Technical Support &amp; Installation Technician</div>
+                    <div class="j-company">Power Finland</div>
+                    <div class="j-desc">Technical support, RMA processes, hardware &amp; software installation for end users.</div>
+                </div>
+                <div class="j-card">
+                    <div class="j-year">2019 – 2021</div>
+                    <div class="j-role">Jr. Solution Consultant → PMO Trainee</div>
+                    <div class="j-company">Matrix42 (Efecte)</div>
+                    <div class="j-desc">Delivery projects, Service Desk operations, ERP data management (NetSuite).</div>
+                </div>
+                <div class="j-card">
+                    <div class="j-year">2021 – 2023</div>
+                    <div class="j-role">Solution Consultant → Practice Lead</div>
+                    <div class="j-company">Matrix42</div>
+                    <div class="j-desc">100+ ITSM/ESM implementations. Practice Lead for delivery methodology improvement across Matrix42.</div>
+                </div>
+                <div class="j-card now">
+                    <div class="j-year">2023 – Present</div>
+                    <div class="j-role">Delivery Manager, Sweden &amp; Nordics</div>
+                    <div class="j-company">Matrix42</div>
+                    <div class="j-desc">Delivery ownership, team management, stakeholder alignment across Sales, Presales, Product &amp; SD.</div>
+                </div>
+            </div>
+
+            <div class="section-sublbl" style="margin-top:0.8em;">Education</div>
+            <div class="edu-grid compact">
+                <div class="edu-card main">
+                    <div class="edu-year">2022 – 2026 (ongoing)</div>
+                    <div class="edu-school">LUT University</div>
+                    <div class="edu-deg">
+                        M.Sc. (tech) · Industrial Engineering &amp; Management<br>
+                        Thesis: product portfolio repositioning &amp; integration
+                    </div>
+                </div>
+                <div class="edu-card">
+                    <div class="edu-year">2017 – 2021</div>
+                    <div class="edu-school">Metropolia UAS</div>
+                    <div class="edu-deg">
+                        B.Eng. · Industrial Engineering &amp; Management<br>
+                        Major: International ICT-Business
+                    </div>
+                </div>
+                <div class="edu-card">
+                    <div class="edu-year">Certifications</div>
+                    <div class="edu-school">ITIL® 4 Foundation &amp; Matrix42 Admin</div>
+                    <div class="edu-deg">
+                        PeopleCert · 2022<br>
+                        Efecte (Matrix42) · 2020
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ══ 4: SKILLS  (light background) ════════════════ -->
+    <section data-background-color="#E8F5F8">
+        <div class="s4-wrap">
+            <span class="lbl dark">Expertise</span>
+            <h2 style="font-size:2.3em; color:#202326; font-weight:700;">What I bring</h2>
+            <div class="hdiv dark"></div>
+            <div class="skill-grid">
+                <div>
+                    <div class="sg-title">Domain Expertise</div>
+                    <div class="chips">
+                        <span class="chip hi">ITSM / ESM</span>
+                        <span class="chip hi">SAM / ITAM</span>
+                        <span class="chip">SIAM</span>
+                        <span class="chip">BPMN 2.0</span>
+                        <span class="chip">ITIL® 4</span>
+                        <span class="chip">Service Design</span>
+                    </div>
+                </div>
+                <div>
+                    <div class="sg-title">Product &amp; Delivery</div>
+                    <div class="chips">
+                        <span class="chip hi">Roadmap &amp; Prioritization</span>
+                        <span class="chip">Requirements Engineering</span>
+                        <span class="chip">Project Management</span>
+                        <span class="chip">Customer Workshops</span>
+                        <span class="chip">UX &amp; Prototyping</span>
+                    </div>
+                </div>
+                <div>
+                    <div class="sg-title">Technical &amp; AI</div>
+                    <div class="chips">
+                        <span class="chip hi">AI &amp; Agentic Dev</span>
+                        <span class="chip">Python / Jython</span>
+                        <span class="chip">SQL</span>
+                        <span class="chip">REST API</span>
+                        <span class="chip">Azure / Entra ID</span>
+                        <span class="chip">SAP S4/HANA</span>
+                    </div>
+                </div>
+                <div>
+                    <div class="sg-title">Leadership</div>
+                    <div class="chips">
+                        <span class="chip hi">Team Management</span>
+                        <span class="chip">Stakeholder Communication</span>
+                        <span class="chip">De-escalation</span>
+                        <span class="chip">Facilitation</span>
+                        <span class="chip">Process Design</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ══ 5: WHY THIS ROLE ══════════════════════════════ -->
+    <section data-background-color="#202326">
+        <div class="s6-wrap">
+            <span class="lbl">Motivation</span>
+            <h2 style="font-size:2.3em; color:#fff; font-weight:700; max-width:8em; line-height:1.05;">
+                Why I want<br>this role <!-- REPLACE headline if needed -->
+            </h2>
+            <div class="why-points">
+                <div class="why-pt">
+                    <div class="why-n">1</div>
+                    <div class="why-txt">
+                        <strong>Domain expertise meets product thinking.</strong> Hands-on understanding of ITSM, ESM, SAM, and ITAM — combined with familiarity with product development, roadmap ownership, and prioritisation. I know the domain and the customer problems from the inside.
+                    </div>
+                </div>
+                <div class="why-pt">
+                    <div class="why-n">2</div>
+                    <div class="why-txt">
+                        <strong>A natural cross-organisational integrator.</strong> Strong relationships across Sales, Presales, Product, and Service Delivery. My M.Sc. thesis focuses on product portfolio repositioning and integration — directly relevant to bringing SaaS management deeper into the Matrix42 portfolio.
+                    </div>
+                </div>
+                <div class="why-pt">
+                    <div class="why-n">3</div>
+                    <div class="why-txt">
+                        <strong>Customer-centric delivery at scale.</strong> 100+ implementations and continuous-development projects across 35+ customers. I understand customer needs, requirements, and failure modes — and I'm deeply interested in how AI and agentic product development can shape the next generation of service management.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ══ 7: HOBBIES / PERSONAL ═════════════════════════ -->
+    <section data-background-color="#202326">
+        <div class="s7-wrap">
+            <span class="lbl">Beyond the office</span>
+            <h2 style="font-size:2.3em; color:#fff; font-weight:700;">A bit about me</h2>
+            <div class="photo-row">
+                <div class="photo-item">
+                    <img src="pictures/56ACB819-804A-4D5D-94BB-9F8C97912B07_1_105_c.jpeg" alt="Photography & travel">
+                    <div class="photo-cap">Photography &amp; travel</div>
+                </div>
+                <div class="photo-item">
+                    <img src="pictures/CCC907D8-42B2-4316-94B7-74A27C7560F4_1_105_c.jpeg" alt="Skiing & mountains">
+                    <div class="photo-cap">Skiing &amp; mountains</div>
+                </div>
+                <div class="photo-item">
+                    <img src="pictures/F7C0536F-3589-4F17-B194-4184A4358126_1_105_c.jpeg" alt="Sailing">
+                    <div class="photo-cap">Sailing</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ══ 8: THANK YOU ══════════════════════════════════ -->
+    <section data-background-gradient="linear-gradient(135deg, #04303D 0%, #202326 100%)">
+        <div class="s8-wrap">
+            <span class="lbl dim">Thank you</span>
+            <div class="s8-name">Jonas<br>Kauko</div>
+            <div class="hdiv"></div>
+            <div class="s8-contacts">
+                <div class="s8-row">
+                    <div class="s8-dot"></div>
+                    jonas.kauko@matrix42.com
+                </div>
+                <div class="s8-row">
+                    <div class="s8-dot"></div>
+                    Espoo, Finland
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+<script>
+    Reveal.initialize({
+        hash: true,
+        transition: 'fade',
+        transitionSpeed: 'default',
+        controls: true,
+        progress: true,
+        slideNumber: 'c/t',
+        center: false,
+        width: 1280,
+        height: 720,
+        margin: 0.04,
+        minScale: 0.2,
+        maxScale: 2.0,
+    });
+</script>
+</body>
+</html>

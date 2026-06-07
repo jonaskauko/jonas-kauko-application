@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jonas Kauko — Application Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --polar:  #04303D;
+            --autumn: #0D5673;
+            --blue:   #30A5BF;
+            --black:  #202326;
+            --white:  #ffffff;
+            --muted:  #7a9aaa;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html, body {
+            height: 100%;
+            overflow: hidden;
+            font-family: 'Sharp Sans Display No1', 'Space Grotesk', Arial, sans-serif;
+            background: var(--black);
+        }
+
+        .layout {
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            height: 100vh;
+        }
+
+        /* ── LEFT NAV ── */
+        .nav {
+            background: var(--polar);
+            display: flex;
+            flex-direction: column;
+            padding: 40px 0;
+            border-right: 1px solid rgba(255,255,255,0.07);
+        }
+
+        .nav-identity {
+            padding: 0 32px 36px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .nav-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+        }
+
+        .nav-role {
+            font-size: 0.62rem;
+            font-weight: 600;
+            color: var(--blue);
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            margin-top: 7px;
+        }
+
+        .nav-subtitle {
+            font-size: 0.72rem;
+            color: var(--muted);
+            margin-top: 4px;
+            line-height: 1.4;
+        }
+
+        .nav-section-label {
+            font-size: 0.58rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            color: rgba(255,255,255,0.25);
+            padding: 28px 32px 12px;
+        }
+
+        .nav-items {
+            flex: 1;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0;
+            padding: 12px 32px;
+            cursor: pointer;
+            position: relative;
+            border-left: 3px solid transparent;
+            transition: background 0.15s, border-color 0.15s;
+        }
+
+        .nav-item:hover {
+            background: rgba(255,255,255,0.04);
+        }
+
+        .nav-item.active {
+            background: rgba(48,165,191,0.1);
+            border-left-color: var(--blue);
+        }
+
+        .nav-item-inner { width: 100%; }
+
+        .nav-item-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: rgba(255,255,255,0.45);
+            line-height: 1.2;
+            transition: color 0.15s;
+        }
+
+        .nav-item:hover .nav-item-title {
+            color: rgba(255,255,255,0.75);
+        }
+
+        .nav-item.active .nav-item-title {
+            color: var(--white);
+        }
+
+        .nav-item-desc {
+            font-size: 0.68rem;
+            color: rgba(255,255,255,0.2);
+            margin-top: 2px;
+            transition: color 0.15s;
+        }
+
+        .nav-item:hover .nav-item-desc {
+            color: rgba(255,255,255,0.35);
+        }
+
+        .nav-item.active .nav-item-desc {
+            color: var(--muted);
+        }
+
+        .nav-footer {
+            padding: 24px 32px 0;
+            border-top: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .nav-footer-email {
+            font-size: 0.72rem;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        .nav-footer-loc {
+            font-size: 0.7rem;
+            color: rgba(255,255,255,0.2);
+            margin-top: 2px;
+        }
+
+        /* Decorative marker accent */
+        .nav-marker {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            opacity: 0.05;
+        }
+
+        /* ── CONTENT FRAME ── */
+        .frame-wrap {
+            position: relative;
+            background: var(--black);
+        }
+
+        .doc-frame {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+        }
+
+        /* Empty state */
+        .empty-state {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            color: rgba(255,255,255,0.15);
+            font-size: 0.85rem;
+            gap: 12px;
+        }
+    </style>
+</head>
+<body>
+<div class="layout">
+
+    <!-- ── LEFT NAV ── -->
+    <nav class="nav">
+
+        <div class="nav-identity">
+            <div class="nav-name">Jonas<br>Kauko</div>
+            <div class="nav-role">Product Manager Application</div>
+            <div class="nav-subtitle">Software Intelligence · Matrix42</div>
+        </div>
+
+        <div class="nav-section-label">Documents</div>
+
+        <div class="nav-items">
+            <div class="nav-item active" data-src="cv.html" onclick="load(this)">
+                <div class="nav-item-inner">
+                    <div class="nav-item-title">Curriculum Vitae</div>
+                    <div class="nav-item-desc">Experience, skills &amp; education</div>
+                </div>
+            </div>
+
+            <div class="nav-item" data-src="cover-letter.html" onclick="load(this)">
+                <div class="nav-item-inner">
+                    <div class="nav-item-title">Cover Letter</div>
+                    <div class="nav-item-desc">Application letter</div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Matrix Marker decoration -->
+        <svg class="nav-marker" width="120" height="120" viewBox="0 0 120 120" fill="none">
+            <rect x="60" y="8" width="74" height="74" rx="3"
+                  transform="rotate(45 60 60)" stroke="white" stroke-width="1"/>
+            <rect x="60" y="26" width="48" height="48" rx="2"
+                  transform="rotate(45 60 60)" stroke="white" stroke-width="1"/>
+        </svg>
+
+        <div class="nav-footer">
+            <div class="nav-footer-email">jonas.kauko@matrix42.com</div>
+            <div class="nav-footer-loc">Espoo, Finland</div>
+        </div>
+
+    </nav>
+
+    <!-- ── IFRAME ── -->
+    <div class="frame-wrap">
+        <iframe class="doc-frame" id="docFrame" src="cv.html"></iframe>
+    </div>
+
+</div>
+
+<script>
+    function load(el) {
+        document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
+        el.classList.add('active');
+        document.getElementById('docFrame').src = el.dataset.src;
+    }
+</script>
+</body>
+</html>

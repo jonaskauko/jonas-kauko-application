@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jonas Kauko — Curriculum Vitae</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --dark:       #04303D;   /* Polar Blue — sidebar       */
+            --mid:        #0D5673;   /* Autumn Blue                */
+            --accent:     #30A5BF;   /* Efecte Blue — primary      */
+            --accent-dim: #0D5673;   /* Autumn Blue — dimmer       */
+            --white:      #ffffff;
+            --offwhite:   #E8F5F8;   /* Light Lake                 */
+            --text:       #202326;   /* M42 Black                  */
+            --muted:      #64748b;
+            --border:     #e2e8f0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Sharp Sans Display No1', 'Space Grotesk', 'Inter', Arial, sans-serif;
+            background: #c8d8dc;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .page {
+            max-width: 1050px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 360px 1fr;
+            box-shadow: 0 24px 80px rgba(0,0,0,0.2);
+        }
+
+        /* ── SIDEBAR ── */
+        .sidebar {
+            background: var(--dark);
+            color: var(--white);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .photo-wrap {
+            position: relative;
+            height: 230px;
+            overflow: hidden;
+        }
+
+        .photo-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 18%;
+        }
+
+        .photo-wrap::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to bottom,
+                rgba(4,48,61,0) 60%,
+                rgba(4,48,61,0.85) 85%,
+                rgba(4,48,61,1) 100%
+            );
+        }
+
+        .identity {
+            padding: 0 32px 24px;
+            margin-top: -48px;
+            position: relative;
+            z-index: 1;
+            position: relative;
+            z-index: 1;
+        }
+
+        .identity h1 {
+            font-size: 2.1rem;
+            font-weight: 700;
+            line-height: 1.05;
+            letter-spacing: -0.03em;
+        }
+
+        .identity .role {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            margin-top: 8px;
+        }
+
+        .sidebar-body {
+            padding: 4px 32px 40px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 26px;
+        }
+
+        .s-section-title {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(48,165,191,0.3);
+            margin-bottom: 12px;
+        }
+
+        .contact-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.85rem;
+            color: #94a3b8;
+            line-height: 1.5;
+            margin-bottom: 8px;
+        }
+
+        .contact-row:last-child { margin-bottom: 0; }
+
+        .c-icon {
+            color: var(--accent);
+            width: 18px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 2px;
+        }
+
+        .lang-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 8px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .lang-row:last-child { margin-bottom: 0; border-bottom: none; }
+
+        .lang-name { font-size: 0.88rem; color: #e2e8f0; font-weight: 500; }
+
+        .lang-meta {
+            font-size: 0.75rem;
+            color: #7a9aaa;
+            font-style: italic;
+        }
+
+        .pips { display: flex; gap: 4px; }
+
+        .pip {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: rgba(6,182,212,0.2);
+        }
+
+        .pip.on { background: var(--accent); }
+
+        .skill-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .skill-list li {
+            font-size: 0.82rem;
+            color: #cbd5e1;
+            line-height: 1;
+            padding: 5px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .skill-list li:last-child { border-bottom: none; }
+
+        /* ── MAIN ── */
+        .main {
+            background: var(--white);
+            padding: 52px 44px 44px;
+        }
+
+        .summary {
+            border-left: 3px solid var(--accent);
+            padding-left: 20px;
+            margin-bottom: 44px;
+        }
+
+        .summary p {
+            font-style: italic;
+            font-weight: 300;
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: var(--muted);
+        }
+
+        .m-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text);
+            margin-bottom: 22px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .m-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        .m-section { margin-bottom: 38px; }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 22px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            bottom: 8px;
+            width: 1px;
+            background: var(--border);
+        }
+
+        .tl-item {
+            position: relative;
+            margin-bottom: 28px;
+        }
+
+        .tl-item:last-child { margin-bottom: 0; }
+
+        .tl-item::before {
+            content: '';
+            position: absolute;
+            left: -26px;
+            top: 7px;
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: var(--accent);
+            box-shadow: 0 0 0 3px var(--white), 0 0 0 4px var(--accent);
+        }
+
+        .tl-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 3px;
+        }
+
+        .tl-company {
+            font-size: 0.67rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .tl-date {
+            font-size: 0.7rem;
+            color: var(--muted);
+            white-space: nowrap;
+            margin-left: 8px;
+            flex-shrink: 0;
+        }
+
+        .tl-role {
+            font-size: 0.92rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 5px;
+        }
+
+        .tl-desc {
+            font-size: 0.8rem;
+            line-height: 1.65;
+            color: #475569;
+        }
+
+        .subroles {
+            margin-top: 14px;
+            padding-left: 16px;
+            border-left: 2px solid #e2e8f0;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .sub-title {
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .sub-title::before {
+            content: '';
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent);
+            flex-shrink: 0;
+        }
+
+        .sub-desc {
+            font-size: 0.8rem;
+            color: #475569;
+            line-height: 1.6;
+            margin-top: 3px;
+        }
+
+        .tl-bullets {
+            margin: 6px 0 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .tl-bullets li {
+            font-size: 0.77rem;
+            line-height: 1.6;
+            color: #475569;
+            padding-left: 12px;
+            position: relative;
+        }
+
+        .tl-bullets li::before {
+            content: '–';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .sub-bullets {
+            margin: 4px 0 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .sub-bullets li {
+            font-size: 0.73rem;
+            line-height: 1.55;
+            color: var(--muted);
+            padding-left: 10px;
+            position: relative;
+        }
+
+        .sub-bullets li::before {
+            content: '·';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        .tl-tech {
+            font-size: 0.76rem;
+            color: var(--muted);
+            margin-top: 5px;
+            font-style: italic;
+        }
+
+        /* Education */
+        .edu-item { margin-bottom: 18px; }
+        .edu-item:last-child { margin-bottom: 0; }
+
+        .edu-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .edu-school {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .edu-date {
+            font-size: 0.7rem;
+            color: var(--muted);
+            white-space: nowrap;
+            margin-left: 8px;
+            flex-shrink: 0;
+        }
+
+        .edu-degree {
+            font-size: 0.78rem;
+            color: var(--accent-dim);
+            font-weight: 500;
+            margin-top: 3px;
+        }
+
+        .edu-detail {
+            font-size: 0.75rem;
+            color: var(--muted);
+            margin-top: 3px;
+            line-height: 1.5;
+        }
+
+        /* Certifications */
+        .cert-item {
+            display: flex;
+            gap: 18px;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+
+        .cert-item:last-child { margin-bottom: 0; }
+
+        .cert-date {
+            font-size: 0.7rem;
+            color: var(--muted);
+            white-space: nowrap;
+            min-width: 60px;
+            padding-top: 1px;
+        }
+
+        .cert-name {
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--text);
+            line-height: 1.45;
+        }
+
+        .cert-issuer {
+            font-size: 0.72rem;
+            color: var(--muted);
+            margin-top: 2px;
+        }
+
+        @media print {
+            body { background: white; padding: 0; }
+            .page { max-width: 100%; box-shadow: none; }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- ── SIDEBAR ── -->
+    <aside class="sidebar">
+
+        <div class="photo-wrap">
+            <img src="pictures/DSC02724.jpg" alt="Jonas Kauko">
+        </div>
+
+        <div class="identity">
+            <h1>Jonas<br>Kauko</h1>
+            <div class="role">Service Delivery Manager</div>
+        </div>
+
+        <div class="sidebar-body">
+
+            <div>
+                <div class="s-section-title">Contact</div>
+                <div class="contact-row">
+                    <span class="c-icon">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="1.5" y="3.5" width="13" height="9" rx="1.5" stroke="currentColor" stroke-width="1.3"/>
+                            <path d="M1.5 5L8 9.5L14.5 5" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/>
+                        </svg>
+                    </span>
+                    <span>jonas.kauko@matrix42.com</span>
+                </div>
+                <div class="contact-row">
+                    <span class="c-icon">
+                        <svg width="14" height="16" viewBox="0 0 14 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7 1C4.24 1 2 3.24 2 6C2 9.75 7 15 7 15C7 15 12 9.75 12 6C12 3.24 9.76 1 7 1Z" stroke="currentColor" stroke-width="1.3"/>
+                            <circle cx="7" cy="6" r="1.8" stroke="currentColor" stroke-width="1.3"/>
+                        </svg>
+                    </span>
+                    <span>Espoo, Finland</span>
+                </div>
+            </div>
+
+            <div>
+                <div class="s-section-title">Languages</div>
+
+                <div class="lang-row">
+                    <div class="lang-name">Swedish</div>
+                    <div class="lang-meta">Native</div>
+                </div>
+
+                <div class="lang-row">
+                    <div class="lang-name">Finnish</div>
+                    <div class="lang-meta">Native</div>
+                </div>
+
+                <div class="lang-row">
+                    <div class="lang-name">English</div>
+                    <div class="lang-meta">Full Professional</div>
+                </div>
+            </div>
+
+            <div>
+                <div class="s-section-title">Technical Skills</div>
+                <ul class="skill-list">
+                    <li>Python &amp; Jython</li>
+                    <li>SQL / SQL Server</li>
+                    <li>REST API · XML · SOAP</li>
+                    <li>Azure / Entra ID · MS Exchange</li>
+                    <li>PowerBI</li>
+                    <li>SAP S4/HANA</li>
+                    <li>Linux</li>
+                    <li>ITSM · SIAM · BPMN 2.0 · UML</li>
+                </ul>
+            </div>
+
+            <div>
+                <div class="s-section-title">Soft Skills</div>
+                <ul class="skill-list">
+                    <li>Project Management</li>
+                    <li>Service Design</li>
+                    <li>Customer-Centric UX</li>
+                    <li>Facilitation &amp; Workshopping</li>
+                    <li>Communication</li>
+                    <li>Problem-Solving</li>
+                    <li>Prototyping</li>
+                </ul>
+            </div>
+
+            <div>
+                <div class="s-section-title">Certifications</div>
+                <ul class="skill-list">
+                    <li>
+                        Certified Matrix42 Professional Administrator<br>
+                        <span style="font-size:0.75rem; color:#7a9aaa;">Efecte (Matrix42) · Jan 2020</span>
+                    </li>
+                    <li>
+                        Certified Visual Workflow Automation Admin<br>
+                        <span style="font-size:0.75rem; color:#7a9aaa;">Efecte (Matrix42) · Jan 2020</span>
+                    </li>
+                    <li>
+                        ITIL® 4 Foundation Certificate in ITSM<br>
+                        <span style="font-size:0.75rem; color:#7a9aaa;">PeopleCert · Jul 2022</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <div class="s-section-title">Honors &amp; Awards</div>
+                <ul class="skill-list">
+                    <li>
+                        Customer Values Award<br>
+                        <span style="font-size:0.75rem; color:#7a9aaa;">Matrix42 · Jan 2025</span>
+                    </li>
+                    <li>
+                        One Efecte Award<br>
+                        <span style="font-size:0.75rem; color:#7a9aaa;">Efecte · Jan 2023</span>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </aside>
+
+    <!-- ── MAIN ── -->
+    <main class="main">
+
+        <div class="summary">
+            <p>Service Delivery Manager at Matrix42 with a strong foundation in Service Management (ITSM/ESM), digital transformation, and process design. Skilled in bridging business, technology, and people — with 8+ years of experience across consulting, customer service, startups, and product development. Successfully delivered 100+ projects across 35+ customers. Currently responsible for all Swedish and Scandinavian Deliveries.</p>
+        </div>
+
+        <section class="m-section">
+            <h2 class="m-title">Experience</h2>
+            <div class="timeline">
+
+                <!-- MATRIX42 / EFECTE -->
+                <div class="tl-item">
+                    <div class="tl-meta">
+                        <div class="tl-company">Matrix42 (Efecte) &nbsp;·&nbsp; Espoo, Finland</div>
+                        <div class="tl-date">Oct 2019 – Present</div>
+                    </div>
+                    <div class="tl-role">Delivery Manager, Sweden and Scandinavia</div>
+                    <div class="tl-desc">Responsible for Swedish and Scandinavian service delivery and leading the consulting team.</div>
+                    <ul class="tl-bullets">
+                        <li>Resource planning, allocations, and work estimations</li>
+                        <li>Scope and solution design for RFPs and customer engagements</li>
+                        <li>Collaboration with stakeholders from Sales, Product, and R&amp;D</li>
+                        <li>Partner onboarding and management</li>
+                        <li>Project steering groups and project management</li>
+                        <li>Billing, financial reporting, and service methodology development</li>
+                        <li>Goal setting, training, and mentoring new colleagues</li>
+                    </ul>
+                    <div class="subroles">
+                        <div>
+                            <div class="sub-title">Practice Lead &nbsp;<span style="font-weight:400; color:var(--muted);">Dec 2023 – Present</span></div>
+                            <div class="sub-desc">Practice Lead for Enterprise &amp; IT Service Management. Developing process, tools, and best practices; internal enablement of new products and service packages; collaboration with Product and Sales.</div>
+                        </div>
+                        <div>
+                            <div class="sub-title">Solution Consultant &nbsp;<span style="font-weight:400; color:var(--muted);">Feb 2022 – Dec 2023</span></div>
+                            <div class="sub-desc">Planning, designing, and implementing Service Management and ITSM solutions. Advising customers on digitalising and automating workflows and technical processes.</div>
+                            <div class="tl-tech">Python · Jython · SQL · SQL Server · XML · Linux · REST API · Web API · Azure · Exchange · ITSM · SIAM · BPMN 2.0</div>
+                        </div>
+                        <div>
+                            <div class="sub-title">Jr. Solution Consultant &nbsp;<span style="font-weight:400; color:var(--muted);">Jul 2020 – Feb 2022</span></div>
+                            <div class="sub-desc">From Service Desk tickets to delivery projects — designing and building solutions for customers end to end.</div>
+                        </div>
+                        <div>
+                            <div class="sub-title">PMO Trainee &nbsp;<span style="font-weight:400; color:var(--muted);">Oct 2019 – Jul 2020</span></div>
+                            <div class="sub-desc">Project Management Office. Exporting and processing financial data for internal ERP implementation (NetSuite).</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FABRI PLATFORM -->
+                <div class="tl-item">
+                    <div class="tl-meta">
+                        <div class="tl-company">Fabri Platform &nbsp;·&nbsp; Helsinki, Finland</div>
+                        <div class="tl-date">Aug 2023 – Nov 2024</div>
+                    </div>
+                    <div class="tl-role">Co-Owner &amp; Product Manager</div>
+                    <div class="tl-desc">Responsible for product strategy and development at Fabri — a curated marketplace for independent creative fashion designers and brands worldwide.</div>
+                    <ul class="tl-bullets">
+                        <li>Owned the product roadmap from concept to launch</li>
+                        <li>Customer discovery, requirements definition, and feature prioritisation</li>
+                        <li>Coordinated design, development, and go-to-market efforts</li>
+                    </ul>
+                </div>
+
+                <!-- PRISM PROTOCOL -->
+                <div class="tl-item">
+                    <div class="tl-meta">
+                        <div class="tl-company">Prism Protocol &nbsp;·&nbsp; Phuket, Thailand</div>
+                        <div class="tl-date">Mar 2019 – May 2019</div>
+                    </div>
+                    <div class="tl-role">Project Lead (Internship)</div>
+                    <div class="tl-desc">Internship at a software startup building a preventive eHealth platform. Led vendor selection project and planned Business Intelligence reports. Also worked on market research, B2B branding, and Go-To-Market strategy.</div>
+                </div>
+
+                <!-- POWER FINLAND -->
+                <div class="tl-item">
+                    <div class="tl-meta">
+                        <div class="tl-company">Power Finland &nbsp;·&nbsp; Helsinki, Finland</div>
+                        <div class="tl-date">Aug 2016 – Oct 2019</div>
+                    </div>
+                    <div class="tl-role">Customer Technical Support &amp; Installation Technician</div>
+                    <div class="tl-desc">After-sales marketing — RMA management, technical customer support, and overseeing the installations team.</div>
+                    <ul class="tl-bullets">
+                        <li>Guarantee service, RMAs, and technical customer support</li>
+                        <li>Hardware and software installations: PC, Mac, mobile, TV calibration</li>
+                    </ul>
+                </div>
+
+                <!-- DELL EMC -->
+                <div class="tl-item">
+                    <div class="tl-meta">
+                        <div class="tl-company">Dell EMC &nbsp;·&nbsp; Helsinki, Finland</div>
+                        <div class="tl-date">Nov 2017 – Mar 2018</div>
+                    </div>
+                    <div class="tl-role">Market Research</div>
+                    <div class="tl-desc">Comprehensive market research study on Dell's new Virtual Reality (VR) glasses for the public and private sectors. School project with a 4-person team over 5 months.</div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="m-section">
+            <h2 class="m-title">Education</h2>
+
+            <div class="edu-item">
+                <div class="edu-head">
+                    <div class="edu-school">LUT University</div>
+                    <div class="edu-date">2022 – 2026</div>
+                </div>
+                <div class="edu-degree">M.Sc. (tech) · Industrial Engineering &amp; Management</div>
+                <div class="edu-detail">Major: Global Management of Innovation and Technology<br>Minor: Software Development and Digital Transformation</div>
+            </div>
+
+            <div class="edu-item">
+                <div class="edu-head">
+                    <div class="edu-school">Metropolia University of Applied Sciences</div>
+                    <div class="edu-date">2017 – 2021</div>
+                </div>
+                <div class="edu-degree">B.Eng. · Industrial Engineering &amp; Management</div>
+                <div class="edu-detail">Major: International ICT-Business</div>
+            </div>
+
+            <div class="edu-item">
+                <div class="edu-head">
+                    <div class="edu-school">Brändö Gymnasium</div>
+                    <div class="edu-date">2013 – 2016</div>
+                </div>
+                <div class="edu-degree">Matriculation Examination</div>
+            </div>
+
+        </section>
+
+        </section>
+
+    </main>
+
+</div>
+</body>
+</html>

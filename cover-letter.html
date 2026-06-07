@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jonas Kauko — Cover Letter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --dark:   #04303D;   /* Polar Blue — header bg        */
+            --accent: #30A5BF;   /* Efecte Blue — primary accent  */
+            --white:  #ffffff;
+            --text:   #202326;   /* M42 Black                     */
+            --muted:  #64748b;
+            --border: #e2e8f0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Sharp Sans Display No1', 'Space Grotesk', Arial, sans-serif;
+            background: #c8d8dc;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .page {
+            max-width: 780px;
+            margin: 0 auto;
+            background: var(--white);
+            box-shadow: 0 24px 80px rgba(0,0,0,0.2);
+        }
+
+        /* ── HEADER ── */
+        .header {
+            background: var(--dark);
+            padding: 40px 52px;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            align-items: end;
+            gap: 24px;
+        }
+
+        .header-name {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: -0.03em;
+            line-height: 1;
+        }
+
+        .header-role {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            margin-top: 8px;
+        }
+
+        .header-contact {
+            text-align: right;
+        }
+
+        .header-contact-row {
+            font-size: 0.75rem;
+            color: #94a3b8;
+            line-height: 1.9;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 8px;
+        }
+
+        .header-contact-row .dot {
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: var(--accent);
+            flex-shrink: 0;
+        }
+
+        /* ── ACCENT BAR ── */
+        .accent-bar {
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), rgba(6,182,212,0.2));
+        }
+
+        /* ── BODY ── */
+        .letter-body {
+            padding: 52px 52px 60px;
+        }
+
+        .meta-block {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 40px;
+        }
+
+        .recipient {
+            font-size: 0.85rem;
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        .recipient strong {
+            font-weight: 600;
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .letter-date {
+            font-size: 0.78rem;
+            color: var(--muted);
+            padding-top: 3px;
+        }
+
+        .subject-line {
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--text);
+            border-left: 3px solid var(--accent);
+            padding-left: 16px;
+            margin-bottom: 32px;
+            line-height: 1.4;
+        }
+
+        .letter-text {
+            font-size: 0.9rem;
+            line-height: 1.85;
+            color: #334155;
+        }
+
+        .letter-text p {
+            margin-bottom: 1.4em;
+        }
+
+        .letter-text p:last-child { margin-bottom: 0; }
+
+        .salutation {
+            font-size: 0.9rem;
+            color: var(--text);
+            margin-bottom: 28px;
+        }
+
+        .signature-block {
+            margin-top: 48px;
+        }
+
+        .sign-closing {
+            font-size: 0.9rem;
+            color: var(--text);
+            margin-bottom: 40px;
+        }
+
+        .sign-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text);
+            letter-spacing: -0.02em;
+            border-top: 1px solid var(--border);
+            padding-top: 16px;
+        }
+
+        .sign-title {
+            font-size: 0.75rem;
+            color: var(--muted);
+            margin-top: 4px;
+        }
+
+        /* ── FOOTER ── */
+        .footer {
+            background: var(--dark);
+            padding: 18px 52px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-text {
+            font-size: 0.68rem;
+            color: #475569;
+            letter-spacing: 0.05em;
+        }
+
+        .footer-accent {
+            width: 28px;
+            height: 2px;
+            background: var(--accent);
+            border-radius: 1px;
+        }
+
+        @media print {
+            body { background: white; padding: 0; }
+            .page { box-shadow: none; max-width: 100%; }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <header class="header">
+        <div>
+            <div class="header-name">Jonas Kauko</div>
+            <div class="header-role">Service Delivery Manager</div>
+        </div>
+        <div class="header-contact">
+            <div class="header-contact-row">
+                <div class="dot"></div>
+                jonas.kauko@matrix42.com
+            </div>
+            <div class="header-contact-row">
+                <div class="dot"></div>
+                Espoo, Finland
+            </div>
+        </div>
+    </header>
+
+    <div class="accent-bar"></div>
+
+    <div class="letter-body">
+
+        <div class="meta-block">
+            <div class="recipient">
+                <!-- REPLACE: Recipient name and details -->
+                <strong>[Hiring Manager Name]</strong>
+                Matrix42<br>
+                [City / Department]
+            </div>
+            <div class="letter-date">
+                <!-- REPLACE: Date -->
+                [Date]
+            </div>
+        </div>
+
+        <div class="subject-line">
+            <!-- REPLACE: Role title -->
+            Re: Application for [Role Title]
+        </div>
+
+        <div class="salutation">
+            <!-- REPLACE: Salutation -->
+            Dear [Name],
+        </div>
+
+        <div class="letter-text">
+            <!-- REPLACE: Opening paragraph — hook, role you're applying for, brief reason why -->
+            <p>
+                [Opening paragraph: Introduce yourself briefly, name the role, and state your primary reason for applying. Example: "I am writing to express my interest in the [Role] position at Matrix42. Having spent the past X years within the organisation..."]
+            </p>
+
+            <!-- REPLACE: Main value proposition paragraph — what you bring, key evidence -->
+            <p>
+                [Second paragraph: Highlight your most relevant experience and achievements that directly match the role. Be specific — mention numbers, customers, outcomes. Example: "Over the course of my time as Delivery Manager, I have led 100+ implementations across 35+ customers in Sweden and the Nordics..."]
+            </p>
+
+            <!-- REPLACE: Motivation paragraph — why this role, why now, company alignment -->
+            <p>
+                [Third paragraph: Explain your motivation for the internal move. What excites you about this specific role? How does it align with your career direction and with Matrix42's goals?]
+            </p>
+
+            <!-- REPLACE: Closing paragraph — call to action -->
+            <p>
+                [Closing paragraph: Express enthusiasm for discussing further, thank them for their time, mention your availability.]
+            </p>
+        </div>
+
+        <div class="signature-block">
+            <div class="sign-closing">Kind regards,</div>
+            <div class="sign-name">Jonas Kauko</div>
+            <div class="sign-title">Service Delivery Manager · Matrix42</div>
+        </div>
+
+    </div>
+
+    <footer class="footer">
+        <div class="footer-text">jonas.kauko@matrix42.com &nbsp;·&nbsp; Espoo, Finland</div>
+        <div class="footer-accent"></div>
+    </footer>
+
+</div>
+</body>
+</html>
