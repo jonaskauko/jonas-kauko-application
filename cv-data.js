@@ -67,15 +67,7 @@ const CV = {
       location:  "Espoo, Finland",
       dateRange: "Oct 2019 – Present",
       role:      "Delivery Manager, Sweden and Scandinavia",
-      desc:      "Responsible for Swedish and Scandinavian service delivery and leading the consulting team.",
-      bullets: [
-        "Resource planning, allocations, and work estimations",
-        "Scope and solution design for RFPs and customer engagements",
-        "Collaboration with stakeholders from Sales, Product, and R&D",
-        "Partner onboarding and management",
-        "Project steering groups and project management",
-        "Billing, financial reporting, and service methodology development",
-        "Goal setting, training, and mentoring new colleagues",
+      desc:      "Responsible for Swedish and Scandinavian service delivery and leading the consulting team. Key responsibilities include resource planning and allocation, effort estimation, solution design for customer engagements and RFPs, stakeholder collaboration across Sales, Product, and R&D, partner management, project governance, financial follow-up, service development, and the training and mentoring of consultants.",
       ],
       subroles: [
         {
