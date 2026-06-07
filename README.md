@@ -59,6 +59,21 @@ Open `cover-letter-data.js`. Fill in the recipient, date, and replace the paragr
 
 ---
 
+## How to show or hide tabs
+
+Open `index.html` and find the `TABS` config near the bottom. Set `hidden: true` to hide a tab, `hidden: false` to show it:
+
+```js
+const TABS = [
+    { title: 'Curriculum Vitae',  ..., hidden: false },
+    { title: 'Cover Letter',      ..., hidden: false },
+    { title: 'Projects',          ..., hidden: true  },  // ← hidden
+    { title: 'About Me',          ..., hidden: false },
+];
+```
+
+---
+
 ## How to publish changes
 
 After editing any file, run these three commands in the terminal from this folder:
