@@ -21,7 +21,7 @@ const PROJECTS = {
     ],
     deliveryTypes: [
       { label: "Implementation Project (ITSM/ESM)", count: 37 },
-      { label: "Continuous development / Consulting", count: 38 },
+      { label: "Continuous development & Consulting", count: 38 },
       { label: "Integrations",                       count:  8 },
       { label: "Training",                           count:  7 },
     ],
