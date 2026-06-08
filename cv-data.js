@@ -14,7 +14,7 @@ const CV = {
   photo:    "pictures/DSC02724.jpg",
 
   // ── Summary (shown at the top of the main column) ────────────────
-  summary: "Service Delivery Manager at Matrix42 with a strong foundation in Service Management (ITSM/ESM), digital transformation, and process design. Skilled in bridging business, technology, and people — with 8+ years of experience across consulting, customer service, startups, and product development. Successfully delivered 100+ projects across 35+ customers. Currently responsible for all Swedish and Scandinavian Deliveries.",
+  summary: "Service Delivery Manager at Matrix42 with a strong foundation in Service Management (ITSM/ESM), digital transformation, and process design. Skilled in bridging business, technology, and people — with 8+ years of experience across consulting, customer service, startups, and product development. Successfully delivered 90+ projects across 35+ customers. Currently responsible for all Swedish and Scandinavian Deliveries.",
 
   // ── Languages ────────────────────────────────────────────────────
   languages: [
@@ -78,7 +78,6 @@ const CV = {
           title: "Solution Consultant",
           date:  "Feb 2022 – Dec 2023",
           desc:  "Planning, designing, and implementing Service Management and ITSM solutions. Advising customers on digitalising and automating workflows and technical processes.",
-          tech:  "Python · Jython · SQL · SQL Server · XML · Linux · REST API · Web API · Azure · Exchange · ITSM · SIAM · BPMN 2.0",
         },
         {
           title: "Jr. Solution Consultant",
@@ -112,10 +111,6 @@ const CV = {
       dateRange: "Aug 2016 – Oct 2019",
       role:      "Customer Technical Support & Installation Technician",
       desc:      "After-sales marketing — RMA management, technical customer support, and overseeing the installations team.",
-      bullets: [
-        "Guarantee service, RMAs, and technical customer support",
-        "Hardware and software installations: PC, Mac, mobile, TV calibration",
-      ],
     },
     {
       company:   "Dell EMC",
