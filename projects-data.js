@@ -15,17 +15,16 @@ const PROJECTS = {
   stats: {
     kpis: [
       { number: "90+",       label: "Projects delivered" },
-      { number: "5",         label: "Industries served"  },
+      { number: "5+",        label: "Industries served"  },
       { number: "2020–2025", label: "Active years"       },
       { number: "200k+€",    label: "Largest contract"   },
     ],
     deliveryTypes: [
       { label: "Implementation Project (ITSM/ESM)", count: 37 },
-      { label: "Consulting",      count: 29 },
-      { label: "Integrations",    count:  8 },
-      { label: "Training",        count:  7 },
-      { label: "Continuous development",  count:  6 },
-      { label: "Other",           count:  3 },
+      { label: "Consulting & Other", count: 32 },
+      { label: "Integrations",       count:  8 },
+      { label: "Training",           count:  7 },
+      { label: "Continuous development", count: 6 },
     ],
     sectors: [
       { label: "Private (Enterprise)", count: 61 },
