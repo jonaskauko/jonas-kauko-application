@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project
 
-Static job application portfolio for Jonas Kauko. Live at https://jonaskauko.github.io/jonas-kauko-application/ — deployed automatically via GitHub Pages on every push to `main`.
+Static job application portfolio for Jonas Kauko. Deployed automatically via Netlify on every push to `main`. The GitHub repo is private; Netlify watches `main` and redeploys within ~30 seconds of each push.
 
 ## After every change: push to Git
 
@@ -16,7 +16,7 @@ git commit -m "Short description"
 git push
 ```
 
-The live site updates within 1–2 minutes after pushing.
+The live site updates within ~30 seconds after pushing.
 
 ## Architecture
 
