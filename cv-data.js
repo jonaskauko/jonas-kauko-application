@@ -13,7 +13,7 @@ const CV = {
   phone:    "+358 44 970 0279",
   linkedin: "linkedin.com/in/jonaskauko",
   location: "Espoo, Finland",
-  photo:    "pictures/DSC02724.jpg",
+  photo:    "pictures/DSC02724 copy.jpg",
 
   // ── Summary (shown at the top of the main column) ────────────────
   summary: "Service Delivery Manager at Matrix42 with a strong foundation in Service Management (ITSM/ESM), digital transformation, and process design. Skilled in bridging business, technology, and people — with 8+ years of experience across consulting, customer service, startups, and product development. Successfully delivered 90+ projects across 35+ customers. Currently responsible for all Swedish and Scandinavian Deliveries.",

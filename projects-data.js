@@ -14,10 +14,10 @@ const PROJECTS = {
   // ── AGGREGATE STATS ──────────────────────────────────────────
   stats: {
     kpis: [
-      { number: "90+",       label: "Projects delivered" },
+      { number: "90+",       label: "Deliveries"          },
       { number: "8+",        label: "Industries served"  },
       { number: "2020–2026", label: "Active years"       },
-      { number: "200k+€",    label: "Largest contract"   },
+      { number: "1.5M+€",    label: "Total contract value" },
     ],
     deliveryTypes: [
       { label: "Implementation Project (ITSM/ESM)", count: 37 },

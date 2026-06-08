@@ -8,7 +8,7 @@ const ABOUT = {
   role: "Service Delivery Manager",
 
   // ── Intro paragraph ──────────────────────────────────────────────
-  intro: "[Your interests paragraph here — to be written]",
+  intro: "Outside of work, I'm drawn to experiences that mix challenge with perspective. Whether it's planning a ski line in the Alps, reading the wind on a summer archipelago, or framing a moment through a lens somewhere unexpected — I try to stay curious and keep moving. Travel has taken me across four continents and counting, always with a camera close by.",
 
   // ── Photos — order = left to right ───────────────────────────────
   photos: [

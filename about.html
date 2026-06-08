@@ -24,37 +24,30 @@
 
         /* ── INTRO ── */
         .intro-section {
-            padding: 44px 52px 36px;
+            padding: 36px 24px 52px;
             text-align: center;
             flex-shrink: 0;
-        }
-
-        .intro-label {
-            font-size: 0.62rem;
-            font-weight: 700;
-            color: #9891bb;
-            text-transform: uppercase;
-            letter-spacing: 0.18em;
-            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #2d3040;
         }
 
         .intro-text {
-            font-size: 0.92rem;
-            color: #94a3b8;
-            line-height: 1.85;
+            font-size: 1.05rem;
+            color: rgba(255,255,255,0.75);
+            line-height: 1.9;
             font-weight: 300;
             font-style: italic;
-            max-width: 600px;
-            margin: 0 auto;
+            max-width: 640px;
         }
 
         /* ── PHOTOS ── */
         .photos-grid {
-            flex: 1;
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 3px;
-            min-height: 360px;
+            height: 80vh;
         }
 
         .photo-item {
@@ -89,14 +82,50 @@
             letter-spacing: 0.16em;
         }
 
+        /* ── HEADER ── */
+        .header {
+            background: #2d3040;
+            padding: 40px 52px;
+        }
+
+        .header-name {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: -0.03em;
+            line-height: 1;
+        }
+
+        .header-role {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: #9891bb;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            margin-top: 8px;
+        }
+
+        .accent-bar {
+            height: 4px;
+            background: linear-gradient(90deg, #655bb0, rgba(101,91,176,0.2));
+        }
+
         @media (max-width: 600px) {
             .photos-grid { grid-template-columns: 1fr; min-height: auto; }
             .photo-item { min-height: 260px; }
             .intro-section { padding: 32px 24px 28px; }
+            .header { padding: 28px 24px; }
+            .header-name { font-size: 1.6rem; }
         }
     </style>
 </head>
 <body>
+
+<div class="header">
+    <div class="header-name" id="about-name"></div>
+    <div class="header-role">About Me</div>
+</div>
+<div class="accent-bar"></div>
 
 <div class="intro-section" id="about-intro"></div>
 <div class="photos-grid" id="about-photos"></div>
@@ -111,8 +140,9 @@
             .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
     }
 
+    document.getElementById('about-name').textContent = d.name;
+
     document.getElementById('about-intro').innerHTML = `
-        <div class="intro-label">${e(d.name)} &nbsp;·&nbsp; ${e(d.role)}</div>
         <p class="intro-text">${e(d.intro)}</p>`;
 
     document.getElementById('about-photos').innerHTML = d.photos.map(p => `
