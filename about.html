@@ -8,258 +8,98 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --dark:   #2d3040;
-            --accent: #655bb0;
-            --white:  #ffffff;
-            --text:   #1a1b2e;
-            --muted:  #64748b;
-            --border: #e2e8f0;
-        }
-
         * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html, body {
+            height: 100%;
+        }
 
         body {
             font-family: 'Sharp Sans Display No1', 'Space Grotesk', Arial, sans-serif;
-            background: #e8e7f0;
-            min-height: 100vh;
-            padding: 40px 20px;
-        }
-
-        .page {
-            max-width: 780px;
-            margin: 0 auto;
-            background: var(--white);
-            box-shadow: 0 24px 80px rgba(0,0,0,0.2);
-        }
-
-        /* ── HEADER ── */
-        .header {
-            background: var(--dark);
-            padding: 40px 52px;
-            display: grid;
-            grid-template-columns: 1fr auto;
-            align-items: end;
-            gap: 24px;
-        }
-
-        .header-name {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--white);
-            letter-spacing: -0.03em;
-            line-height: 1;
-        }
-
-        .header-role {
-            font-size: 0.7rem;
-            font-weight: 600;
-            color: var(--accent);
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            margin-top: 8px;
-        }
-
-        .header-contact {
-            text-align: right;
-        }
-
-        .header-contact-row {
-            font-size: 0.75rem;
-            color: #94a3b8;
-            line-height: 1.9;
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            gap: 8px;
-        }
-
-        .header-contact-row .dot {
-            width: 4px;
-            height: 4px;
-            border-radius: 50%;
-            background: var(--accent);
-            flex-shrink: 0;
-        }
-
-        .accent-bar {
-            height: 4px;
-            background: linear-gradient(90deg, var(--accent), rgba(101,91,176,0.2));
-        }
-
-        /* ── BODY ── */
-        .body {
-            padding: 52px 52px 60px;
-        }
-
-        .bio {
-            font-size: 0.95rem;
-            color: #334155;
-            line-height: 1.85;
-            margin-bottom: 44px;
-            border-left: 3px solid var(--accent);
-            padding-left: 20px;
-            font-style: italic;
-            font-weight: 300;
-        }
-
-        .section-title {
-            font-size: 1.1rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: var(--text);
-            margin-bottom: 22px;
-            display: flex;
-            align-items: center;
-            gap: 14px;
-        }
-
-        .section-title::after {
-            content: '';
-            flex: 1;
-            height: 1px;
-            background: var(--border);
-        }
-
-        .section { margin-bottom: 40px; }
-        .section:last-child { margin-bottom: 0; }
-
-        /* ── HOBBIES ── */
-        .hobby-list {
+            background: #2d3040;
             display: flex;
             flex-direction: column;
-            gap: 0;
+            min-height: 100%;
         }
 
-        .hobby-item {
-            padding: 18px 0;
-            border-bottom: 1px solid var(--border);
-            display: flex;
-            gap: 20px;
-            align-items: flex-start;
-        }
-
-        .hobby-item:first-child { padding-top: 0; }
-        .hobby-item:last-child { border-bottom: none; padding-bottom: 0; }
-
-        .hobby-text { flex: 1; }
-
-        .hobby-name {
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: var(--text);
-            margin-bottom: 4px;
-        }
-
-        .hobby-desc {
-            font-size: 0.85rem;
-            color: #475569;
-            line-height: 1.65;
-        }
-
-        .hobby-img {
-            width: 130px;
-            height: 90px;
-            object-fit: cover;
-            border-radius: 4px;
+        /* ── INTRO ── */
+        .intro-section {
+            padding: 44px 52px 36px;
+            text-align: center;
             flex-shrink: 0;
         }
 
-        /* ── PHOTO GALLERY ── */
-        .photo-grid {
+        .intro-label {
+            font-size: 0.62rem;
+            font-weight: 700;
+            color: #9891bb;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            margin-bottom: 18px;
+        }
+
+        .intro-text {
+            font-size: 0.92rem;
+            color: #94a3b8;
+            line-height: 1.85;
+            font-weight: 300;
+            font-style: italic;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ── PHOTOS ── */
+        .photos-grid {
+            flex: 1;
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3px;
+            min-height: 360px;
+        }
+
+        .photo-item {
+            position: relative;
+            overflow: hidden;
         }
 
         .photo-item img {
             width: 100%;
-            aspect-ratio: 4/3;
+            height: 100%;
             object-fit: cover;
-            border-radius: 4px;
+            object-position: center top;
             display: block;
+            transition: transform 0.5s ease;
         }
 
-        .photo-caption {
-            font-size: 0.72rem;
-            color: var(--muted);
-            margin-top: 6px;
-            line-height: 1.4;
+        .photo-item:hover img {
+            transform: scale(1.03);
         }
 
-        /* ── FACTS ── */
-        .facts-list {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .facts-list li {
-            font-size: 0.85rem;
-            color: #475569;
-            padding-left: 16px;
-            position: relative;
-            line-height: 1.5;
-        }
-
-        .facts-list li::before {
-            content: '–';
+        .photo-label {
             position: absolute;
+            bottom: 0;
             left: 0;
-            color: var(--accent);
-            font-weight: 600;
-        }
-
-        /* ── FOOTER ── */
-        .footer {
-            background: var(--dark);
-            padding: 18px 52px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .footer-text {
+            right: 0;
+            padding: 40px 20px 18px;
+            background: linear-gradient(to top, rgba(26,27,46,0.75) 0%, transparent 100%);
             font-size: 0.68rem;
-            color: #475569;
-            letter-spacing: 0.05em;
+            font-weight: 600;
+            color: rgba(255,255,255,0.85);
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
         }
 
-        .footer-accent {
-            width: 28px;
-            height: 2px;
-            background: var(--accent);
-            border-radius: 1px;
-        }
-
-        @media print {
-            body { background: white; padding: 0; }
-            .page { box-shadow: none; max-width: 100%; }
-        }
-
-        @media (max-width: 768px) {
-            body { padding: 0; }
-            .page { max-width: 100%; box-shadow: none; }
-            .header { padding: 28px 24px; grid-template-columns: 1fr; gap: 12px; }
-            .header-contact { text-align: left; }
-            .header-contact-row { justify-content: flex-start; }
-            .header-name { font-size: 1.6rem; }
-            .body { padding: 32px 24px 44px; }
-            .footer { padding: 16px 24px; }
-            .hobby-img { width: 90px; height: 70px; }
-            .photo-grid { grid-template-columns: 1fr; }
+        @media (max-width: 600px) {
+            .photos-grid { grid-template-columns: 1fr; min-height: auto; }
+            .photo-item { min-height: 260px; }
+            .intro-section { padding: 32px 24px 28px; }
         }
     </style>
 </head>
 <body>
-<div class="page">
-    <header class="header" id="about-header"></header>
-    <div class="accent-bar"></div>
-    <div class="body" id="about-body"></div>
-    <footer class="footer" id="about-footer"></footer>
-</div>
+
+<div class="intro-section" id="about-intro"></div>
+<div class="photos-grid" id="about-photos"></div>
 
 <script src="about-data.js"></script>
 <script>
@@ -271,57 +111,15 @@
             .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
     }
 
-    document.getElementById('about-header').innerHTML = `
-        <div>
-            <div class="header-name">${e(d.name)}</div>
-            <div class="header-role">${e(d.role)}</div>
-        </div>
-        <div class="header-contact">
-            <div class="header-contact-row"><div class="dot"></div>${e(d.email)}</div>
-            <div class="header-contact-row"><div class="dot"></div>${e(d.location)}</div>
-        </div>`;
+    document.getElementById('about-intro').innerHTML = `
+        <div class="intro-label">${e(d.name)} &nbsp;·&nbsp; ${e(d.role)}</div>
+        <p class="intro-text">${e(d.intro)}</p>`;
 
-    const hobbies = d.hobbies.map(h => `
-        <div class="hobby-item">
-            <div class="hobby-text">
-                <div class="hobby-name">${e(h.name)}</div>
-                <div class="hobby-desc">${e(h.desc)}</div>
-            </div>
-            ${h.image ? `<img class="hobby-img" src="${e(h.image)}" alt="${e(h.name)}">` : ''}
+    document.getElementById('about-photos').innerHTML = d.photos.map(p => `
+        <div class="photo-item">
+            <img src="${e(p.src)}" alt="${e(p.label)}">
+            <div class="photo-label">${e(p.label)}</div>
         </div>`).join('');
-
-    const facts = d.facts && d.facts.length
-        ? `<section class="section">
-               <h2 class="section-title">A Few Things About Me</h2>
-               <ul class="facts-list">${d.facts.map(f => `<li>${e(f)}</li>`).join('')}</ul>
-           </section>`
-        : '';
-
-    const gallery = d.photos && d.photos.length
-        ? `<section class="section">
-               <h2 class="section-title">Photos</h2>
-               <div class="photo-grid">
-                   ${d.photos.map(p => `
-                       <div class="photo-item">
-                           <img src="${e(p.src)}" alt="${e(p.caption || '')}">
-                           ${p.caption ? `<div class="photo-caption">${e(p.caption)}</div>` : ''}
-                       </div>`).join('')}
-               </div>
-           </section>`
-        : '';
-
-    document.getElementById('about-body').innerHTML = `
-        <p class="bio">${e(d.bio)}</p>
-        <section class="section">
-            <h2 class="section-title">Hobbies &amp; Interests</h2>
-            <div class="hobby-list">${hobbies}</div>
-        </section>
-        ${facts}
-        ${gallery}`;
-
-    document.getElementById('about-footer').innerHTML = `
-        <div class="footer-text">${e(d.email)} &nbsp;·&nbsp; ${e(d.location)}</div>
-        <div class="footer-accent"></div>`;
 })();
 </script>
 </body>
