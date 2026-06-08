@@ -15,7 +15,7 @@ const PROJECTS = {
   stats: {
     kpis: [
       { number: "90+",       label: "Projects delivered" },
-      { number: "5+",        label: "Industries served"  },
+      { number: "8+",        label: "Industries served"  },
       { number: "2020–2025", label: "Active years"       },
       { number: "200k+€",    label: "Largest contract"   },
     ],
@@ -26,11 +26,14 @@ const PROJECTS = {
       { label: "Training",                           count:  7 },
     ],
     sectors: [
-      { label: "Private (Enterprise)", count: 61 },
-      { label: "Public (Municipal)",   count: 15 },
-      { label: "Insurance",            count:  8 },
-      { label: "Education",            count:  3 },
-      { label: "Legal services",       count:  3 },
+      { label: "IT & Technology",          count: 22 },
+      { label: "Public Sector",            count: 15 },
+      { label: "Industrial & Mfg.",        count: 10 },
+      { label: "Insurance & Finance",      count: 10 },
+      { label: "Healthcare & Non-profit",  count:  9 },
+      { label: "Retail & Consumer",        count:  9 },
+      { label: "Security & Building",      count:  9 },
+      { label: "Education & Legal",        count:  6 },
     ],
   },
 
