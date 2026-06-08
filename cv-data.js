@@ -46,6 +46,7 @@ const CV = {
     "Linux",
     "ITSM · SIAM · BPMN 2.0 · UML",
     "Claude Code",
+    "GitHub",
   ],
 
   // ── Certifications ───────────────────────────────────────────────
