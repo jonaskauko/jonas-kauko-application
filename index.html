@@ -330,8 +330,8 @@
     <div class="frame-wrap">
         <iframe class="doc-frame" id="docFrame" src="cv.html"></iframe>
         <div class="canvas-footer" id="canvasFooter">
-            <span class="canvas-footer-link" onclick="loadCoverLetter()">
-                Cover Letter
+            <span class="canvas-footer-link" id="canvasFooterLink">
+                <span id="canvasFooterText">Cover Letter</span>
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                     <path d="M2.5 7h9M8 3.5l3.5 3.5L8 10.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
@@ -385,12 +385,30 @@
         document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
         el.classList.add('active');
         document.getElementById('docFrame').src = el.dataset.src;
-        document.getElementById('canvasFooter').style.display =
-            el.dataset.src === 'cv.html' ? '' : 'none';
+
+        const footer = document.getElementById('canvasFooter');
+        const link   = document.getElementById('canvasFooterLink');
+        const text   = document.getElementById('canvasFooterText');
+        if (el.dataset.src === 'cv.html') {
+            footer.style.display = '';
+            text.textContent = 'Cover Letter';
+            link.onclick = loadCoverLetter;
+        } else if (el.dataset.src === 'cover-letter.html') {
+            footer.style.display = '';
+            text.textContent = 'Projects';
+            link.onclick = loadProjects;
+        } else {
+            footer.style.display = 'none';
+        }
     }
 
     function loadCoverLetter() {
         const el = document.querySelector('[data-src="cover-letter.html"]');
+        if (el) load(el);
+    }
+
+    function loadProjects() {
+        const el = document.querySelector('[data-src="projects.html"]');
         if (el) load(el);
     }
 </script>
