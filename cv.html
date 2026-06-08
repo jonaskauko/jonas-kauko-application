@@ -127,6 +127,16 @@
 
         .contact-row:last-child { margin-bottom: 0; }
 
+        .contact-row a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .contact-row a:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
         .c-icon {
             color: var(--accent-light);
             width: 18px;
@@ -542,9 +552,9 @@
 
     // Contact
     sb += `<div><div class="s-section-title">Contact</div>
-        <div class="contact-row"><span class="c-icon">${EMAIL_SVG}</span><span>${e(d.email)}</span></div>
+        <div class="contact-row"><span class="c-icon">${EMAIL_SVG}</span><span><a href="mailto:${e(d.email)}">${e(d.email)}</a></span></div>
         <div class="contact-row"><span class="c-icon">${PHONE_SVG}</span><span>${e(d.phone)}</span></div>
-        <div class="contact-row"><span class="c-icon">${LINKEDIN_SVG}</span><span>${e(d.linkedin)}</span></div>
+        <div class="contact-row"><span class="c-icon">${LINKEDIN_SVG}</span><span><a href="https://${e(d.linkedin)}" target="_blank">${e(d.linkedin)}</a></span></div>
         <div class="contact-row"><span class="c-icon">${PIN_SVG}</span><span>${e(d.location)}</span></div>
     </div>`;
 

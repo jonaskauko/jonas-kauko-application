@@ -45,13 +45,14 @@ const CV = {
     "SAP S4/HANA",
     "Linux",
     "ITSM · SIAM · BPMN 2.0 · UML",
+    "Claude Code",
   ],
 
   // ── Certifications ───────────────────────────────────────────────
   certifications: [
+    { name: "ITIL® 4 Foundation Certificate in ITSM",       issuer: "PeopleCert",        date: "Jul 2022" },
     { name: "Certified Matrix42 Professional Administrator", issuer: "Efecte (Matrix42)", date: "Jan 2020" },
     { name: "Certified Visual Workflow Automation Admin",    issuer: "Efecte (Matrix42)", date: "Jan 2020" },
-    { name: "ITIL® 4 Foundation Certificate in ITSM",       issuer: "PeopleCert",        date: "Jul 2022" },
   ],
 
   // ── Honors & Awards ──────────────────────────────────────────────
