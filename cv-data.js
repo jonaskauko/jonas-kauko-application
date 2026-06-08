@@ -37,16 +37,12 @@ const CV = {
   ],
 
   technicalSkills: [
-    "Python & Jython",
-    "SQL / SQL Server",
+    "Python · SQL · Linux",
     "REST API · XML · SOAP",
-    "Azure / Entra ID · MS Exchange",
-    "PowerBI",
-    "SAP S4/HANA",
-    "Linux",
-    "ITSM · SIAM · BPMN 2.0 · UML",
-    "Claude Code",
-    "GitHub",
+    "Azure · Entra ID · Exchange",
+    "PowerBI · SAP S4/HANA",
+    "ITSM · SIAM · BPMN 2.0",
+    "Claude Code · GitHub",
   ],
 
   // ── Certifications ───────────────────────────────────────────────
