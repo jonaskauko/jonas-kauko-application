@@ -193,6 +193,47 @@
             text-align: right;
         }
 
+        /* ── DONUT CHART ── */
+        .donut-wrap {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .donut-legend {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .donut-legend-row {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+        }
+
+        .donut-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .donut-label {
+            font-size: 0.7rem;
+            color: var(--text);
+            flex: 1;
+            line-height: 1.2;
+        }
+
+        .donut-count {
+            font-size: 0.65rem;
+            color: var(--muted);
+            min-width: 18px;
+            text-align: right;
+        }
+
         /* ── FEATURED HEADING ── */
         .featured-heading {
             display: flex;
@@ -375,13 +416,40 @@
             </div>`).join('');
     }
 
+    // Donut chart via SVG
+    function donutChart(items) {
+        const colors = ['#655bb0', '#4a4175', '#9891bb', '#c4bde0'];
+        const total  = items.reduce((s, i) => s + i.count, 0);
+        const cx = 54, cy = 54, r = 48, ir = 28, gap = 0.035;
+        let angle = -Math.PI / 2;
+        const segs = items.map((item, idx) => {
+            const sweep = (item.count / total) * 2 * Math.PI - gap;
+            const cos1 = Math.cos(angle),        sin1 = Math.sin(angle);
+            const cos2 = Math.cos(angle + sweep), sin2 = Math.sin(angle + sweep);
+            const large = sweep > Math.PI ? 1 : 0;
+            const d = `M${cx+r*cos1},${cy+r*sin1} A${r},${r} 0 ${large},1 ${cx+r*cos2},${cy+r*sin2} L${cx+ir*cos2},${cy+ir*sin2} A${ir},${ir} 0 ${large},0 ${cx+ir*cos1},${cy+ir*sin1} Z`;
+            angle += sweep + gap;
+            return `<path d="${d}" fill="${colors[idx]}"/>`;
+        });
+        const legend = items.map((item, idx) => `
+            <div class="donut-legend-row">
+                <span class="donut-dot" style="background:${colors[idx]}"></span>
+                <span class="donut-label">${e(item.label)}</span>
+                <span class="donut-count">${item.count}</span>
+            </div>`).join('');
+        return `<div class="donut-wrap">
+            <svg width="108" height="108" viewBox="0 0 108 108" style="flex-shrink:0">${segs.join('')}</svg>
+            <div class="donut-legend">${legend}</div>
+        </div>`;
+    }
+
     const statsHtml = `
         <div class="stats-section">
             <div class="kpi-grid">${kpis}</div>
             <div class="charts-grid">
                 <div>
                     <div class="chart-title">By delivery type</div>
-                    ${bars(d.stats.deliveryTypes)}
+                    ${donutChart(d.stats.deliveryTypes)}
                 </div>
                 <div>
                     <div class="chart-title">By sector</div>
