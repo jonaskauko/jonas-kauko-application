@@ -98,11 +98,6 @@ const CV = {
       dateRange: "Aug 2023 – Nov 2024",
       role:      "Co-Owner & Product Manager",
       desc:      "Responsible for product strategy and development at Fabri — a curated marketplace for independent creative fashion designers and brands worldwide.",
-      bullets: [
-        "Owned the product roadmap from concept to launch",
-        "Customer discovery, requirements definition, and feature prioritisation",
-        "Coordinated design, development, and go-to-market efforts",
-      ],
     },
     {
       company:   "Prism Protocol",
