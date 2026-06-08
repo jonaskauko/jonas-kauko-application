@@ -37,12 +37,12 @@ const CV = {
   ],
 
   technicalSkills: [
-    "Python · SQL · Linux",
-    "REST API · XML · SOAP",
-    "Azure · Entra ID · Exchange",
-    "PowerBI · SAP S4/HANA",
-    "ITSM · SIAM · BPMN 2.0",
-    "Claude Code · GitHub",
+    "Python, SQL, Linux",
+    "REST API, XML, SOAP",
+    "Azure, Entra ID, Exchange",
+    "PowerBI, SAP S4/HANA",
+    "ITSM, SIAM, BPMN 2.0",
+    "Claude Code, GitHub",
   ],
 
   // ── Certifications ───────────────────────────────────────────────
