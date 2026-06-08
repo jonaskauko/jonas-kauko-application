@@ -148,7 +148,7 @@
 
         .lang-row:last-child { margin-bottom: 0; border-bottom: none; }
 
-        .lang-name { font-size: 0.88rem; color: #e2e8f0; font-weight: 500; }
+        .lang-name { font-size: 0.88rem; color: #94a3b8; font-weight: 500; }
 
         .lang-meta {
             font-size: 0.75rem;
@@ -519,7 +519,7 @@
     function badgeList(items) {
         return '<ul class="skill-list">' +
             items.map(i =>
-                `<li>${e(i.name)}<br><span style="font-size:0.75rem;color:#7a9aaa;">${e(i.issuer)} · ${e(i.date)}</span></li>`
+                `<li>${e(i.name)}<br><span style="font-size:0.75rem;color:#94a3b8;">${e(i.issuer)} · ${e(i.date)}</span></li>`
             ).join('') + '</ul>';
     }
     const EMAIL_SVG = `<svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1.5" y="3.5" width="13" height="9" rx="1.5" stroke="currentColor" stroke-width="1.3"/><path d="M1.5 5L8 9.5L14.5 5" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>`;
