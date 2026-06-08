@@ -52,6 +52,28 @@ const CV = {
     { name: "Certified Visual Workflow Automation Admin",    issuer: "Efecte (Matrix42)", date: "Jan 2020" },
   ],
 
+  // ── Publications ─────────────────────────────────────────────────
+  publications: [
+    {
+      title: "Towards a commercial software product portfolio repositioning (PPR) framework: case study of a B2B SaaS merger and integration",
+      type:  "Master's thesis",
+      year:  "2026",
+      url:   "https://lutpub.lut.fi/handle/10024/171716",
+    },
+    {
+      title: "Development of Event Management process (ITSM) for a cloud-based SaaS company",
+      type:  "Bachelor's thesis",
+      year:  "2021",
+      url:   "https://www.theseus.fi/handle/10024/510368",
+    },
+    {
+      title: "Service Desk automation and employee experience",
+      type:  "itSMF Service Desk Evolution study",
+      year:  "2020",
+      url:   "https://www.itsmf.fi/palvelut/sig-tyoryhmat/service-desk-evolution/",
+    },
+  ],
+
   // ── Honors & Awards ──────────────────────────────────────────────
   awards: [
     { name: "Customer Values Award", issuer: "Matrix42", date: "Jan 2025" },
