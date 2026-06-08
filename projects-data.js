@@ -16,7 +16,7 @@ const PROJECTS = {
     kpis: [
       { number: "90+",       label: "Projects delivered" },
       { number: "8+",        label: "Industries served"  },
-      { number: "2020–2025", label: "Active years"       },
+      { number: "2020–2026", label: "Active years"       },
       { number: "200k+€",    label: "Largest contract"   },
     ],
     deliveryTypes: [
