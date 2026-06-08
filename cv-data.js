@@ -10,6 +10,8 @@ const CV = {
   name:     "Jonas Kauko",
   role:     "Service Delivery Manager",
   email:    "jonas.kauko@gmail.com",
+  phone:    "+358 44 970 0279",
+  linkedin: "linkedin.com/in/jonaskauko",
   location: "Espoo, Finland",
   photo:    "pictures/DSC02724.jpg",
 
