@@ -94,10 +94,7 @@
         }
 
         .meta-block {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 40px;
+            margin-bottom: 24px;
         }
 
         .recipient {
@@ -258,15 +255,7 @@
 
     // Body
     document.getElementById('cl-body').innerHTML = `
-        <div class="meta-block">
-            <div class="recipient">
-                <strong>${e(d.recipientName)}</strong>
-                ${e(d.recipientCompany)}<br>${e(d.recipientLocation)}
-            </div>
-            <div class="letter-date">${e(d.date)}</div>
-        </div>
-        <div class="subject-line">Re: ${e(d.subject)}</div>
-        <div class="salutation">${e(d.salutation)}</div>
+        <div class="subject-line">${e(d.subject)}</div>
         <div class="letter-text">
             ${d.paragraphs.map(p => `<p>${e(p)}</p>`).join('')}
         </div>
