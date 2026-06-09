@@ -11,3 +11,7 @@ pictures/.DS_Store
 *.pdf
 *.txt
 *.bak
+
+# Projects section (hidden from public repo)
+projects.html
+projects-data.js
