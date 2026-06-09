@@ -1,0 +1,13 @@
+# macOS
+.DS_Store
+pictures/.DS_Store
+
+# Office temp files
+~$*
+
+# Source data & working files (not for public repo)
+*.xlsx
+*.docx
+*.pdf
+*.txt
+*.bak

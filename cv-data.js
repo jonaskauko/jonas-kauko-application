@@ -89,7 +89,7 @@ const CV = {
       location:  "Espoo, Finland",
       dateRange: "Oct 2019 – Present",
       role:      "Delivery Manager, Sweden and Scandinavia",
-      desc:      "Responsible for Swedish and Scandinavian service delivery and leading the consulting team. Key responsibilities include resource planning and allocation, effort estimation, solution design for customer engagements and RFPs, stakeholder collaboration across Sales, Product, and R&D, partner management, project governance, financial follow-up, service development, and the training and mentoring of consultants.",
+      desc:      "Responsible for Swedish and Scandinavian service delivery and leading the consulting team, including resource planning, solution design, stakeholder management, project governance, financial follow-up, service development, and consultant mentoring.",
       subroles: [
         {
           title: "Practice Lead",
@@ -150,12 +150,19 @@ const CV = {
       date:   "2022 – 2026",
       degree: "M.Sc. (Tech) · Industrial Engineering & Management",
       detail: "Major: Global Management of Innovation and Technology\nMinor: Software Development and Digital Transformation",
+      publications: [
+        { title: "Towards a commercial software product portfolio repositioning (PPR) framework: case study of a B2B SaaS merger and integration", type: "Master's thesis", year: "2026", url: "https://lutpub.lut.fi/handle/10024/171716" },
+      ],
     },
     {
       school: "Metropolia University of Applied Sciences",
       date:   "2017 – 2021",
       degree: "B.Eng. · Industrial Engineering & Management",
       detail: "Major: International ICT-Business",
+      publications: [
+        { title: "Development of Event Management process (ITSM) for a cloud-based SaaS company", type: "Bachelor's thesis", year: "2021", url: "https://www.theseus.fi/handle/10024/510368" },
+        { title: "Service Desk automation and employee experience", type: "itSMF Service Desk Evolution study", year: "2020", url: "https://www.itsmf.fi/palvelut/sig-tyoryhmat/service-desk-evolution/" },
+      ],
     },
     {
       school: "Brändö Gymnasium",

@@ -421,6 +421,33 @@
             margin-top: 3px;
         }
 
+        .edu-pubs {
+            margin-top: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .edu-pub-item {
+            font-size: 0.75rem;
+            color: var(--muted);
+            line-height: 1.4;
+        }
+
+        .edu-pub-item a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .edu-pub-item a:hover { text-decoration: underline; }
+
+        .edu-pub-meta {
+            display: block;
+            font-size: 0.7rem;
+            color: var(--muted);
+            margin-top: 1px;
+        }
+
         .edu-detail {
             font-size: 0.75rem;
             color: var(--muted);
@@ -428,7 +455,61 @@
             line-height: 1.5;
         }
 
-        /* Certifications */
+        /* Main column: certs, awards, publications */
+        .main-badge-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px 32px;
+        }
+
+        .main-badge-item {
+            border-left: 2px solid rgba(101,91,176,0.25);
+            padding-left: 10px;
+        }
+
+        .main-badge-name {
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: var(--text);
+            line-height: 1.35;
+        }
+
+        .main-badge-meta {
+            font-size: 0.72rem;
+            color: var(--muted);
+            margin-top: 2px;
+        }
+
+        .main-pub-item {
+            margin-bottom: 10px;
+        }
+
+        .main-pub-item:last-child { margin-bottom: 0; }
+
+        .main-pub-title {
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: var(--text);
+            line-height: 1.4;
+        }
+
+        .main-pub-title a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .main-pub-title a:hover {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+
+        .main-pub-meta {
+            font-size: 0.72rem;
+            color: var(--muted);
+            margin-top: 2px;
+        }
+
+        /* Certifications (sidebar — kept for reference) */
         .cert-item {
             display: flex;
             gap: 18px;
@@ -608,14 +689,6 @@
     // Technical Skills
     sb += `<div><div class="s-section-title">Technical Skills</div>${skillList(d.technicalSkills)}</div>`;
 
-    // Certifications
-    sb += `<div><div class="s-section-title">Certifications</div>${badgeList(d.certifications)}</div>`;
-
-    // Publications
-    sb += `<div><div class="s-section-title">Publications</div>${pubList(d.publications)}</div>`;
-
-    // Awards
-    sb += `<div><div class="s-section-title">Honors &amp; Awards</div>${badgeList(d.awards)}</div>`;
 
     document.getElementById('cv-sidebar').innerHTML = sb;
 
@@ -656,6 +729,13 @@
     // Education
     main += `<section class="m-section"><h2 class="m-title">Education</h2>`;
     d.education.forEach(edu => {
+        const pubs = edu.publications && edu.publications.length
+            ? `<div class="edu-pubs">${edu.publications.map(p =>
+                `<div class="edu-pub-item">
+                    <a href="${e(p.url)}" target="_blank">${e(p.title)}</a>
+                    <span class="edu-pub-meta">${e(p.type)} · ${e(p.year)}</span>
+                </div>`).join('')}</div>`
+            : '';
         main += `<div class="edu-item">
             <div class="edu-head">
                 <div class="edu-school">${e(edu.school)}</div>
@@ -663,9 +743,12 @@
             </div>
             <div class="edu-degree">${e(edu.degree)}</div>
             ${edu.detail ? `<div class="edu-detail">${edu.detail.split('\n').map(e).join('<br>')}</div>` : ''}
+            ${pubs}
         </div>`;
     });
     main += '</section>';
+
+
 
     document.getElementById('cv-main').innerHTML = main;
 
