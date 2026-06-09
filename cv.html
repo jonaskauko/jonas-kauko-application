@@ -8,6 +8,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        html { font-size: 17px; }
+
         :root {
             --dark:         #2d3040;
             --mid:          #261a46;
@@ -34,7 +36,7 @@
             max-width: 1050px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: 360px 1fr;
+            grid-template-columns: 300px 1fr;
             box-shadow: 0 24px 80px rgba(0,0,0,0.2);
         }
 
@@ -196,21 +198,21 @@
         /* ── MAIN ── */
         .main {
             background: var(--white);
-            padding: 52px 44px 44px;
+            padding: 40px 40px 36px;
         }
 
         .summary {
             border-left: 3px solid var(--accent);
             padding-left: 20px;
-            margin-bottom: 44px;
+            margin-bottom: 30px;
         }
 
         .summary p {
             font-style: italic;
-            font-weight: 300;
-            font-size: 0.95rem;
-            line-height: 1.8;
-            color: var(--muted);
+            font-weight: 400;
+            font-size: 0.9rem;
+            line-height: 1.7;
+            color: #475569;
         }
 
         .m-title {
@@ -232,7 +234,7 @@
             background: var(--border);
         }
 
-        .m-section { margin-bottom: 38px; }
+        .m-section { margin-bottom: 26px; }
 
         /* Timeline */
         .timeline {
@@ -252,7 +254,7 @@
 
         .tl-item {
             position: relative;
-            margin-bottom: 28px;
+            margin-bottom: 18px;
         }
 
         .tl-item:last-child { margin-bottom: 0; }
@@ -391,7 +393,7 @@
         }
 
         /* Education */
-        .edu-item { margin-bottom: 18px; }
+        .edu-item { margin-bottom: 12px; }
         .edu-item:last-child { margin-bottom: 0; }
 
         .edu-head {
