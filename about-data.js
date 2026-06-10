@@ -8,7 +8,7 @@ const ABOUT = {
   role: "Service Delivery Manager",
 
   // ── Intro paragraph ──────────────────────────────────────────────
-  intro: "Outside of work, I'm drawn to experiences that mix challenge with perspective. Whether it's planning a ski line in the Alps, reading the wind on a summer archipelago, or framing a moment through a lens somewhere unexpected — I try to stay curious and keep moving. Travel has taken me across four continents and counting, always with a camera close by.",
+  intro: "Outside of work, I enjoy staying active through a wide variety of sports, from racket sports and beach volleyball to skiing. I also enjoy spending time outdoors hiking, sailing, and traveling. As a visual person with a curiosity for how things work, photography has become a natural passion of mine, allowing me to capture and share how I see the world. It also combines my interest in technology, reflected in my small collection of cameras ranging from vintage film cameras to modern digital equipment.",
 
   // ── Photos — order = left to right ───────────────────────────────
   photos: [
