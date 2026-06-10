@@ -395,8 +395,8 @@
             link.onclick = loadCoverLetter;
         } else if (el.dataset.src === 'cover-letter.html') {
             footer.style.display = '';
-            text.textContent = 'Projects';
-            link.onclick = loadProjects;
+            text.textContent = 'About Me';
+            link.onclick = loadAbout;
         } else {
             footer.style.display = 'none';
         }
@@ -407,8 +407,8 @@
         if (el) load(el);
     }
 
-    function loadProjects() {
-        const el = document.querySelector('[data-src="projects.html"]');
+    function loadAbout() {
+        const el = document.querySelector('[data-src="about.html"]');
         if (el) load(el);
     }
 </script>
